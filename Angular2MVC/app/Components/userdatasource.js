@@ -11,27 +11,30 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var collections_1 = require("@angular/cdk/collections");
-var Observable_1 = require("rxjs/Observable");
 var userDataSource = (function (_super) {
     __extends(userDataSource, _super);
-    function userDataSource(_userservice, _paginator, _url) {
+    //constructor(private _userservice: UserService, private _paginator: MdPaginator, private _url: string) {
+    //    super();
+    //}
+    function userDataSource(_userservice, _url) {
         var _this = _super.call(this) || this;
         _this._userservice = _userservice;
-        _this._paginator = _paginator;
         _this._url = _url;
         return _this;
     }
-    /*constructor(private _userservice: UserService, private _url: string) {
-        super();
-    }*/
     userDataSource.prototype.connect = function () {
-        var _this = this;
-        var displayDataChanges = [this._userservice.get(this._url), this._paginator];
-        return Observable_1.Observable.merge.apply(Observable_1.Observable, displayDataChanges).map(function (data, page) {
-            var clonedData = data.slice();
-            var startIndex = _this._paginator.pageIndex * _this._paginator.pageSize;
-            return data.splice(startIndex, _this._paginator.pageSize);
-        });
+        //const displayDataChanges = [this._userservice.get(this._url), this._paginator];
+        //return Observable.merge(...displayDataChanges).map((data, page) => {
+        //    const clonedData = data.slice();
+        //    const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
+        //    return data.splice(startIndex, this._paginator.pageSize);
+        //})
+        //const displayDataChanges = [this._userservice.get(this._url)];
+        //console.log("User Data Length: " + displayDataChanges.entries);
+        console.log("URL: " + this._url);
+        console.log(this._userservice.get(this._url));
+        //return Observable.of(<any>this._userservice.get(this._url).map((response: Response) => <any>response.json()));
+        return this._userservice.get(this._url);
     };
     userDataSource.prototype.disconnect = function () { };
     return userDataSource;

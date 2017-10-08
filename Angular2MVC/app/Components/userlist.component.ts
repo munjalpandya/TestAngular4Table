@@ -27,8 +27,8 @@ export class UserListComponent implements OnInit {
     constructor(private _userService: UserService) { }
 
     ngOnInit(): void {
-        //this.dataSource = new userDataSource(this._userService, Global.BASE_USER_ENDPOINT);
-        this.dataSource = new userDataSource(this._userService, this.paginator,Global.BASE_USER_ENDPOINT);
+        this.dataSource = new userDataSource(this._userService, Global.BASE_USER_ENDPOINT);
+        //this.dataSource = new userDataSource(this._userService, this.paginator,Global.BASE_USER_ENDPOINT);
         
     }
 }

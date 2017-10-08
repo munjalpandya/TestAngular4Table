@@ -21,8 +21,8 @@ var UserListComponent = (function () {
         this.displayedColumns = ['FirstName', 'LastName'];
     }
     UserListComponent.prototype.ngOnInit = function () {
-        //this.dataSource = new userDataSource(this._userService, Global.BASE_USER_ENDPOINT);
-        this.dataSource = new userdatasource_1.userDataSource(this._userService, this.paginator, global_1.Global.BASE_USER_ENDPOINT);
+        this.dataSource = new userdatasource_1.userDataSource(this._userService, global_1.Global.BASE_USER_ENDPOINT);
+        //this.dataSource = new userDataSource(this._userService, this.paginator,Global.BASE_USER_ENDPOINT);
     };
     return UserListComponent;
 }());
