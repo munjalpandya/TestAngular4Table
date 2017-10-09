@@ -26,6 +26,11 @@ var manageuser_component_1 = require("./components/manageuser.component");
 var datagrid_component_1 = require("./Shared/datagrid/datagrid.component");
 var format_1 = require("./Shared/datagrid/format");
 var orderby_1 = require("./Shared/datagrid/orderby");
+/*
+@NgModule({
+    exports: [MdPaginatorModule]
+})
+*/
 var AppModule = (function () {
     function AppModule() {
     }

@@ -16,13 +16,39 @@ var material_1 = require("@angular/material");
 require("rxjs/add/observable/of");
 var userdatasource_1 = require("./userdatasource");
 var UserListComponent = (function () {
-    function UserListComponent(_userService) {
+    function UserListComponent(_userService, dialog) {
         this._userService = _userService;
-        this.displayedColumns = ['FirstName', 'LastName'];
+        this.dialog = dialog;
+        this.displayedColumns = ['FirstName', 'LastName', 'Gender', 'DOB'];
+        this.columns = [
+            {
+                display: 'First Name',
+                variable: 'FirstName',
+                filter: 'text',
+            },
+            {
+                display: 'Last Name',
+                variable: 'LastName',
+                filter: 'text'
+            },
+            {
+                display: 'Gender',
+                variable: 'Gender',
+                filter: 'text'
+            },
+            {
+                display: 'Date of Birth',
+                variable: 'DOB',
+                filter: 'date'
+            }
+        ];
     }
     UserListComponent.prototype.ngOnInit = function () {
-        this.dataSource = new userdatasource_1.userDataSource(this._userService, global_1.Global.BASE_USER_ENDPOINT);
+        this.LoadUsers();
         //this.dataSource = new userDataSource(this._userService, this.paginator,Global.BASE_USER_ENDPOINT);
+    };
+    UserListComponent.prototype.LoadUsers = function () {
+        this.dataSource = new userdatasource_1.userDataSource(this._userService, global_1.Global.BASE_USER_ENDPOINT, this.sort);
     };
     return UserListComponent;
 }());
@@ -30,11 +56,15 @@ __decorate([
     core_1.ViewChild(material_1.MdPaginator),
     __metadata("design:type", material_1.MdPaginator)
 ], UserListComponent.prototype, "paginator", void 0);
+__decorate([
+    core_1.ViewChild(material_1.MdSort),
+    __metadata("design:type", material_1.MdSort)
+], UserListComponent.prototype, "sort", void 0);
 UserListComponent = __decorate([
     core_1.Component({
         templateUrl: 'app/Components/userlist.component.html'
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+    __metadata("design:paramtypes", [user_service_1.UserService, material_1.MdDialog])
 ], UserListComponent);
 exports.UserListComponent = UserListComponent;
 //# sourceMappingURL=userlist.component.js.map

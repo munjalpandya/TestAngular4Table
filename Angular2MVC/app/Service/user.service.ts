@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class UserService {
@@ -16,7 +17,7 @@ export class UserService {
         //console.log("Get Method");
         // .catch(this.handleError);
     }
-
+    
     post(url: string, model: any): Observable<any> {
         let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });

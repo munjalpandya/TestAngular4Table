@@ -2,17 +2,36 @@
     <div class='panel-heading'>
         User List using Table
     </div>
+    <div class="add-btn-postion">
+        <div>
+            <ng-container>
+                <button type="button" class="btn btn-primary">Add</button>
+            </ng-container>
+        </div>
+    </div>
+    <br />
     <div class='panel-body'>
-        <md-table #table [dataSource]="dataSource">
+        <md-table #table [dataSource]="dataSource" mdSort>
             <ng-container mdColumnDef="FirstName">
-                <md-header-cell *mdHeaderCellDef> First Name </md-header-cell>
+                <md-header-cell *mdHeaderCellDef md-sort-header> First Name </md-header-cell>
                 <md-cell *mdCellDef="let element"> {{element.FirstName}} </md-cell>
             </ng-container>
 
 
             <ng-container mdColumnDef="LastName">
-                <md-header-cell *mdHeaderCellDef> Last Name </md-header-cell>
+                <md-header-cell *mdHeaderCellDef md-sort-header> Last Name </md-header-cell>
                 <md-cell *mdCellDef="let element"> {{element.LastName}} </md-cell>
+            </ng-container>
+
+            <ng-container mdColumnDef="Gender">
+                <md-header-cell *mdHeaderCellDef md-sort-header> Gender </md-header-cell>
+                <md-cell *mdCellDef="let element"> {{element.Gender}} </md-cell>
+            </ng-container>
+
+
+            <ng-container mdColumnDef="DOB">
+                <md-header-cell *mdHeaderCellDef md-sort-header> Date of Birth </md-header-cell>
+                <md-cell *mdCellDef="let element"> {{element.DOB}} </md-cell>
             </ng-container>
 
             <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>

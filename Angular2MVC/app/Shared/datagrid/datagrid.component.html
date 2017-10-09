@@ -7,7 +7,7 @@
         <ng-container *ngFor="let hdrbtn of hdrbtns">
             <button *ngIf="!hdrbtn.ishide" type="button" class="btn btn-primary" (click)="click(hdrbtn,null)">{{hdrbtn.title}}</button>
         </ng-container>
-       <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
+        <button *ngIf="isExporttoCSV && (data!=null && data.length>0)" type="button" class="btn btn-primary" (click)="exporttoCSV()">Export to Excel</button>
     </div>
 </div>
 
@@ -37,6 +37,7 @@
             </tr>
         </tbody>
     </table>
+
     <div *ngIf='data && data.length==0' class="alert alert-info" role="alert">No record found!</div>
     <ng-template #loadingScreen>
         <div class="alert alert-info" role="alert">
@@ -44,3 +45,10 @@
         </div>
     </ng-template>
 </div>
+
+<br />
+<md-paginator [length]="5"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = $event">
+</md-paginator>

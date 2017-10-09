@@ -1,6 +1,7 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {DataGridUtil} from './datagrid.util'
 import { Format } from './format';
+import { PageEvent, MdPaginator } from "@angular/material/material";
 
 export interface GridAction {
     action: string,
@@ -37,11 +38,19 @@ export class DataGrid {
     pdata: any[] = this.data;
     listFilter: string;
     searchTitle: string = "Search:";
+    length: number;
+    pageSize = 10;
+    pageSizeOptions = [2, 5, 10, 25, 100];
+
+    pageEvent: PageEvent;
 
     ngOnChanges(changes: any) {
-        if (JSON.stringify(changes).indexOf("data") != -1)
+        if (JSON.stringify(changes).indexOf("data") != -1){
             this.pdata = this.data;
+        }
         this.criteriaChange(this.listFilter);
+        //this.length = this.data.length;
+        console.log("PData: " + JSON.stringify(this.pdata));
     }
 
     selectedClass(columnName: string): any {
@@ -97,6 +106,10 @@ export class DataGrid {
         }
         );
         DataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
+    }
+
+    setPageSizeOptions(setPageSizeOptionsInput: string) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
 
 }

@@ -11,19 +11,24 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var collections_1 = require("@angular/cdk/collections");
+var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
+require("rxjs/add/observable/merge");
 var userDataSource = (function (_super) {
     __extends(userDataSource, _super);
     //constructor(private _userservice: UserService, private _paginator: MdPaginator, private _url: string) {
     //    super();
     //}
-    function userDataSource(_userservice, _url) {
+    function userDataSource(_userservice, _url, _sort) {
         var _this = _super.call(this) || this;
         _this._userservice = _userservice;
         _this._url = _url;
+        _this._sort = _sort;
+        _this.dataChange = new BehaviorSubject_1.BehaviorSubject([]);
         return _this;
     }
+    //get data(): any { return this._userservice.get(this._url); }
     userDataSource.prototype.connect = function () {
-        //const displayDataChanges = [this._userservice.get(this._url), this._paginator];
+        var displayDataChanges = [this._sort.mdSortChange];
         //return Observable.merge(...displayDataChanges).map((data, page) => {
         //    const clonedData = data.slice();
         //    const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
@@ -31,10 +36,8 @@ var userDataSource = (function (_super) {
         //})
         //const displayDataChanges = [this._userservice.get(this._url)];
         //console.log("User Data Length: " + displayDataChanges.entries);
-        console.log("URL: " + this._url);
-        console.log(this._userservice.get(this._url));
         //return Observable.of(<any>this._userservice.get(this._url).map((response: Response) => <any>response.json()));
-        return this._userservice.get(this._url);
+        return this._userservice.get(this._url); //.merge(...displayDataChanges).map(() => { });
     };
     userDataSource.prototype.disconnect = function () { };
     return userDataSource;

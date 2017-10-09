@@ -19,11 +19,17 @@ var DataGrid = (function () {
         //Local Variable
         this.pdata = this.data;
         this.searchTitle = "Search:";
+        this.pageSize = 10;
+        this.pageSizeOptions = [2, 5, 10, 25, 100];
     }
     DataGrid.prototype.ngOnChanges = function (changes) {
-        if (JSON.stringify(changes).indexOf("data") != -1)
+        if (JSON.stringify(changes).indexOf("data") != -1) {
             this.pdata = this.data;
+            this.length = this.data.length;
+        }
         this.criteriaChange(this.listFilter);
+        //this.length = this.data.length;
+        console.log("PData: " + JSON.stringify(this.pdata));
     };
     DataGrid.prototype.selectedClass = function (columnName) {
         return columnName == this.sort.column ? 'sort-' + this.sort.descending : false;
@@ -73,6 +79,9 @@ var DataGrid = (function () {
             exprtcsv.push(obj);
         });
         datagrid_util_1.DataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
+    };
+    DataGrid.prototype.setPageSizeOptions = function (setPageSizeOptionsInput) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(function (str) { return +str; });
     };
     return DataGrid;
 }());

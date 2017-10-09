@@ -20,7 +20,11 @@ import { DataGrid } from './Shared/datagrid/datagrid.component';
 import { DataGridUtil } from './Shared/datagrid/datagrid.util';
 import { Format } from './Shared/datagrid/format';
 import { OrderBy } from './Shared/datagrid/orderby';
-
+/*
+@NgModule({
+    exports: [MdPaginatorModule]
+})
+*/
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, FormsModule,
         BrowserAnimationsModule,
