@@ -19,6 +19,9 @@ var UserFilterPipe = (function () {
                 || app.DOB != null && app.DOB.indexOf(filter) != -1;
         }) : value;
     };
+    UserFilterPipe.prototype.paging = function (value, startIndex, endIndex) {
+        return JSON.parse(JSON.stringify(value)).slice(startIndex, endIndex + 1);
+    };
     return UserFilterPipe;
 }());
 UserFilterPipe = __decorate([

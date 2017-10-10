@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './components/user.component';
 import { UserListComponent } from './components/userlist.component';
 import { HomeComponent } from './components/home.component';
+import { SamplePaginationComponent } from './Components/samplepagination.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'user', component: UserComponent },
-    { path: 'userlist', component: UserListComponent }
+    { path: 'userlist', component: UserListComponent },
+    { path: 'samplepagination', component: SamplePaginationComponent }
 ];
 
 export const routing: ModuleWithProviders =

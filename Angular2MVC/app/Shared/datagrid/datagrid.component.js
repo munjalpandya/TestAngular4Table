@@ -19,17 +19,24 @@ var DataGrid = (function () {
         //Local Variable
         this.pdata = this.data;
         this.searchTitle = "Search:";
-        this.pageSize = 10;
-        this.pageSizeOptions = [2, 5, 10, 25, 100];
+        this.total = this.totalRecords;
+        this.limit = 2;
+        this.page = 1;
+        this.pageSizeOptions = [
+            { value: '2', viewValue: '2' },
+            { value: '5', viewValue: '5' },
+            { value: '10', viewValue: '10' },
+            { value: '25', viewValue: '25' },
+            { value: '100', viewValue: '100' }
+        ];
     }
     DataGrid.prototype.ngOnChanges = function (changes) {
         if (JSON.stringify(changes).indexOf("data") != -1) {
             this.pdata = this.data;
-            this.length = this.data.length;
         }
         this.criteriaChange(this.listFilter);
-        //this.length = this.data.length;
-        console.log("PData: " + JSON.stringify(this.pdata));
+        //this.length = this.data.length;        
+        this.getData();
     };
     DataGrid.prototype.selectedClass = function (columnName) {
         return columnName == this.sort.column ? 'sort-' + this.sort.descending : false;
@@ -80,8 +87,36 @@ var DataGrid = (function () {
         });
         datagrid_util_1.DataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
     };
-    DataGrid.prototype.setPageSizeOptions = function (setPageSizeOptionsInput) {
-        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(function (str) { return +str; });
+    DataGrid.prototype.getData = function () {
+        this.startIndex = (this.page * this.limit) - this.limit;
+        this.endIndex = this.startIndex + this.limit - 1;
+        if (JSON.stringify(this.data) != undefined) {
+            this.total = this.totalRecords;
+            this.pdata = this.filter.paging(this.data, this.startIndex, this.endIndex);
+        }
+        this.setPagesToShow();
+    };
+    DataGrid.prototype.goToPage = function (n) {
+        this.page = n;
+        this.getData();
+    };
+    DataGrid.prototype.onNext = function () {
+        this.page++;
+        this.getData();
+    };
+    DataGrid.prototype.onPrev = function () {
+        this.page--;
+        this.getData();
+    };
+    DataGrid.prototype.onPageSizeChanged = function (p) {
+        this.limit = p;
+        this.setPagesToShow();
+    };
+    DataGrid.prototype.setPagesToShow = function () {
+        if (this.total % this.limit == 0)
+            this.pagesToShow = this.total / this.limit;
+        else
+            this.pagesToShow = Math.floor(this.total / this.limit) + 1;
     };
     return DataGrid;
 }());
@@ -121,6 +156,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], DataGrid.prototype, "filter", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], DataGrid.prototype, "totalRecords", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)

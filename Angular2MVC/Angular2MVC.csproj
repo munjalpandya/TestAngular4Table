@@ -189,10 +189,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\Components\manageuser.component.html" />
+    <Content Include="app\Components\samplepagination.component.html" />
     <Content Include="app\Components\user.component.html" />
     <Content Include="app\Components\userlist.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.style.css" />
+    <Content Include="app\Shared\datagrid\pagination\pagination.component.css" />
+    <Content Include="app\Shared\datagrid\pagination\pagination.component.html" />
     <Content Include="App_Data\UserDB.mdf" />
     <Content Include="App_Data\UserDB_log.ldf">
       <DependentUpon>UserDB.mdf</DependentUpon>
@@ -232,6 +235,7 @@
     <Content Include="DBContext\UserDBEntities.edmx.diagram">
       <DependentUpon>UserDBEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="app\Shared\datagrid\pagination\pagination.component.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -290,6 +294,7 @@
     <TypeScriptCompile Include="app\app.routing.ts" />
     <TypeScriptCompile Include="app\Components\home.component.ts" />
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
+    <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
     <TypeScriptCompile Include="app\Components\user.component.ts" />
     <TypeScriptCompile Include="app\Components\userdatasource.ts" />
     <TypeScriptCompile Include="app\Components\userlist.component.ts" />
@@ -301,6 +306,8 @@
     <TypeScriptCompile Include="app\Shared\datagrid\datagrid.util.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\format.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\orderby.ts" />
+    <TypeScriptCompile Include="app\Shared\datagrid\pagination\pagination.component.ts" />
+    <TypeScriptCompile Include="app\Shared\datagrid\pagination\pagination.ts" />
     <TypeScriptCompile Include="app\Shared\enum.ts" />
     <TypeScriptCompile Include="app\Shared\errorhandler.ts" />
     <TypeScriptCompile Include="app\Shared\global.ts" />

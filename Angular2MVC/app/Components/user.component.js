@@ -24,6 +24,7 @@ var UserComponent = (function () {
         this.userfilter = userfilter;
         this.isREADONLY = false;
         this.exportFileName = "Users_";
+        this.totalRecords = 0;
         //Grid Vars start
         this.columns = [
             {
@@ -113,7 +114,7 @@ var UserComponent = (function () {
     UserComponent.prototype.LoadUsers = function () {
         var _this = this;
         this._userService.get(global_1.Global.BASE_USER_ENDPOINT)
-            .subscribe(function (users) { _this.users = users; _this.initGridButton(); });
+            .subscribe(function (users) { _this.users = users; _this.initGridButton(); _this.totalRecords = users.length; });
     };
     UserComponent.prototype.addUser = function () {
         this.dbops = enum_1.DBOperation.create;

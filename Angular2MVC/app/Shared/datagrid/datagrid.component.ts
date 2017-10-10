@@ -2,6 +2,7 @@
 import {DataGridUtil} from './datagrid.util'
 import { Format } from './format';
 import { PageEvent, MdPaginator } from "@angular/material/material";
+import { Observable } from "rxjs/Observable";
 
 export interface GridAction {
     action: string,
@@ -29,6 +30,7 @@ export class DataGrid {
     @Input() isExporttoCSV: boolean;
     @Input() exportFileName: string;
     @Input() filter: any;
+    @Input() totalRecords: number;
 
     //Output Variable
     @Output()
@@ -38,9 +40,19 @@ export class DataGrid {
     pdata: any[] = this.data;
     listFilter: string;
     searchTitle: string = "Search:";
-    length: number;
-    pageSize = 10;
-    pageSizeOptions = [2, 5, 10, 25, 100];
+    total: number = this.totalRecords;
+    limit = 2;
+    page = 1;
+    pageSizeOptions = [
+        { value: '2', viewValue: '2' },
+        { value: '5', viewValue: '5' },
+        { value: '10', viewValue: '10' },
+        { value: '25', viewValue: '25' },
+        { value: '100', viewValue: '100' }
+    ];
+    startIndex: number;
+    endIndex: number;
+    pagesToShow: number;
 
     pageEvent: PageEvent;
 
@@ -49,10 +61,10 @@ export class DataGrid {
             this.pdata = this.data;
         }
         this.criteriaChange(this.listFilter);
-        //this.length = this.data.length;
-        console.log("PData: " + JSON.stringify(this.pdata));
+        //this.length = this.data.length;        
+        this.getData();
     }
-
+    
     selectedClass(columnName: string): any {
         return columnName == this.sort.column ? 'sort-' + this.sort.descending : false;
     }
@@ -108,8 +120,44 @@ export class DataGrid {
         DataGridUtil.downloadcsv(exprtcsv, this.exportFileName);
     }
 
-    setPageSizeOptions(setPageSizeOptionsInput: string) {
-        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    getData(): void {
+        
+        this.startIndex = (this.page * this.limit) - this.limit;
+        this.endIndex = this.startIndex + this.limit - 1;
+        if (JSON.stringify(this.data) != undefined)
+        {
+            this.total = this.totalRecords;
+            this.pdata = this.filter.paging(this.data, this.startIndex, this.endIndex);
+        }
+
+        this.setPagesToShow();
     }
 
+    goToPage(n: number): void {
+        this.page = n;
+        this.getData();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getData();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getData();
+    }
+
+    onPageSizeChanged(p: number): void {
+        this.limit = p;
+        this.setPagesToShow();
+    }
+
+    setPagesToShow(): void {
+        if (this.total % this.limit == 0)
+            this.pagesToShow = this.total / this.limit;
+        else
+            this.pagesToShow = Math.floor(this.total / this.limit) + 1;
+    }
+    
 }

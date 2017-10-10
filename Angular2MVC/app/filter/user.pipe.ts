@@ -18,4 +18,8 @@ export class UserFilterPipe implements PipeTransform {
         ) : value;
     }
 
+    paging(value: IUser[], startIndex: number, endIndex: number): IUser[] {
+        return (<any[]>JSON.parse(JSON.stringify(value))).slice(startIndex, endIndex + 1);
+    }
+
 }

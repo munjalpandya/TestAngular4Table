@@ -20,6 +20,10 @@ import { DataGrid } from './Shared/datagrid/datagrid.component';
 import { DataGridUtil } from './Shared/datagrid/datagrid.util';
 import { Format } from './Shared/datagrid/format';
 import { OrderBy } from './Shared/datagrid/orderby';
+
+import { SamplePaginationComponent } from './Components/samplepagination.component';
+
+import { PaginationComponent } from './Shared/datagrid/pagination/pagination.component';
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -31,7 +35,7 @@ import { OrderBy } from './Shared/datagrid/orderby';
         MaterialModule,
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
-        DataGrid, Format, OrderBy, UserListComponent
+        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

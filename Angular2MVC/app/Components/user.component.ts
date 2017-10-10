@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
     dbops: DBOperation;
     modalTitle: string;
     modalBtnTitle: string;
+    totalRecords: number = 0;
 
     //Grid Vars start
     columns: any[] = [
@@ -119,7 +120,7 @@ export class UserComponent implements OnInit {
     }
     LoadUsers(): void {
         this._userService.get(Global.BASE_USER_ENDPOINT)
-            .subscribe(users => { this.users = users; this.initGridButton(); }
+            .subscribe(users => { this.users = users; this.initGridButton(); this.totalRecords = users.length; }
             );
     }
     addUser() {

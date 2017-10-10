@@ -1,0 +1,40 @@
+﻿/*
+.per-page nav p {
+    display: inline-block;
+    margin: 25px 10px;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+.per-page nav .pagination {
+    float: right;
+}
+*/
+.pagination {
+    width: 100%;
+    position: relative;
+    flex: 1;
+    /*background: $grey50;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+    .pagination button {
+        flex: 0 0 auto;
+        outline: none;
+        border: 0;
+        /*padding: 0 ($base / 2);*/
+        background: transparent;
+        background-color:gray;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .pagination span{
+        padding:2px;
+    }
+
+    .pagination md-select {
+        padding: 2px;
+    }

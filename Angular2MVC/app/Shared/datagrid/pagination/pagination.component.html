@@ -1,0 +1,12 @@
+﻿<div class="pagination" *ngIf="count > 0">
+    <span>{{ getMin() }} - {{ getMax() }} of {{ count }}</span>
+    <span>&nbsp;&nbsp;{{ totalPages() }} pages</span>
+    <md-select placeholder="Page Size" (change)="onPageSizeChanged($event)">
+        <md-option *ngFor="let pageSize of pageSizeOptions" [value]="pageSize.value">
+            {{ pageSize.viewValue }}
+        </md-option>
+    </md-select>
+    <button md-button (click)="onPrev()" [disabled]="page === 1 || loading">Previous</button>
+    <!--<button md-button *ngFor="let pageNum of getPages()" (click)="onPage(pageNum)"></button>-->&nbsp;
+    <button md-button (click)="onNext()" [disabled]="lastPage() || loading">Next</button>
+</div>

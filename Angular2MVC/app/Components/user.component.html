@@ -13,7 +13,8 @@
                  [isExporttoCSV]=true
                  [exportFileName]="exportFileName"
                  [filter] = userfilter
-                 (btnclick)="gridaction($event)">
+                 (btnclick)="gridaction($event)"
+                 [totalRecords]="totalRecords">
       </data-grid>
 
     <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
