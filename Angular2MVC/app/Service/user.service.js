@@ -49,6 +49,13 @@ var UserService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    UserService.prototype.masterdetail = function (url, data) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post(url + data, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     UserService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

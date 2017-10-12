@@ -44,6 +44,14 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    masterdetail(url: string, data: any): Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.post(url + data, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');

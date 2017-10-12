@@ -163,6 +163,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterDetailAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
     <Compile Include="DBContext\TblUser.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
@@ -188,6 +189,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\Components\addtolist.component.html" />
     <Content Include="app\Components\manageuser.component.html" />
     <Content Include="app\Components\samplepagination.component.html" />
     <Content Include="app\Components\user.component.html" />
@@ -292,6 +294,7 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.routing.ts" />
+    <TypeScriptCompile Include="app\Components\addtolist.component.ts" />
     <TypeScriptCompile Include="app\Components\home.component.ts" />
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
     <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
