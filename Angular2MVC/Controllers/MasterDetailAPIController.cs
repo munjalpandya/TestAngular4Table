@@ -8,9 +8,9 @@ namespace Angular2MVC.Controllers
 {
     public class MasterDetailAPIController : BaseAPIController
     {
-        public HttpResponseMessage Post(string strJSON)
+        public HttpResponseMessage Post([FromBody]tblDeptMaster deptValue, [FromBody]tblEmpMaster[] empValue)
         {
-            return ToJson(strJSON);
+            return ToJson(UserDB.SaveChanges());
         }
     }
 }

@@ -162,9 +162,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseAPIController.cs" />
+    <Compile Include="Controllers\DeptAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDetailAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
+    <Compile Include="DBContext\tblDeptMaster.cs">
+      <DependentUpon>UserDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\tblEmpMaster.cs">
+      <DependentUpon>UserDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\TblUser.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>
@@ -191,6 +198,7 @@
   <ItemGroup>
     <Content Include="app\Components\addtolist.component.html" />
     <Content Include="app\Components\manageuser.component.html" />
+    <Content Include="app\Components\md.component.html" />
     <Content Include="app\Components\samplepagination.component.html" />
     <Content Include="app\Components\user.component.html" />
     <Content Include="app\Components\userlist.component.html" />
@@ -297,12 +305,15 @@
     <TypeScriptCompile Include="app\Components\addtolist.component.ts" />
     <TypeScriptCompile Include="app\Components\home.component.ts" />
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
+    <TypeScriptCompile Include="app\Components\md.component.ts" />
     <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
     <TypeScriptCompile Include="app\Components\user.component.ts" />
     <TypeScriptCompile Include="app\Components\userdatasource.ts" />
     <TypeScriptCompile Include="app\Components\userlist.component.ts" />
     <TypeScriptCompile Include="app\filter\user.pipe.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\Model\Dept.ts" />
+    <TypeScriptCompile Include="app\Model\Emp.ts" />
     <TypeScriptCompile Include="app\Model\user.ts" />
     <TypeScriptCompile Include="app\Service\user.service.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\datagrid.component.ts" />

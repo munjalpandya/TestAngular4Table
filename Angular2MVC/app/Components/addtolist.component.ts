@@ -9,6 +9,7 @@ import { UserService } from '../Service/user.service';
 
 export class AddToList {
     private fieldArray: Array<any> = [];
+    private fieldArray1: Array<any> = [];
     private newAttribute: any = {};
     userFrm: FormGroup;
 
@@ -47,8 +48,10 @@ export class AddToList {
         this.fieldArray.splice(index, 1);
     }
 
-    save() {
-        console.log(JSON.stringify(this.fieldArray));
-        this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, JSON.stringify(this.fieldArray)).subscribe();
+    save(formData: any) {
+        //console.log(JSON.stringify(this.fieldArray));
+        this.fieldArray1.push(formData);
+        console.log("Form Data: "+ this.fieldArray1);
+        //this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, this.fieldArray).subscribe();
     }
 }

@@ -12,6 +12,8 @@ namespace Angular2MVC.DBContext
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class UserDBEntities : DbContext
     {
@@ -26,5 +28,9 @@ namespace Angular2MVC.DBContext
         }
     
         public virtual DbSet<TblUser> TblUsers { get; set; }
+        public virtual DbSet<tblDeptMaster> tblDeptMasters { get; set; }
+        public virtual DbSet<tblEmpMaster> tblEmpMasters { get; set; }
+    
+        
     }
 }

@@ -15,6 +15,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
+require("rxjs/add/observable/throw");
 var UserService = (function () {
     function UserService(_http) {
         this._http = _http;
@@ -49,10 +50,13 @@ var UserService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    UserService.prototype.masterdetail = function (url, data) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.post(url + data, options)
+    UserService.prototype.masterdetail = function (url, model) {
+        var body = JSON.stringify(model);
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        console.log("Body: " + body);
+        //console.log("Options: " + options);
+        return this._http.get(url + body)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

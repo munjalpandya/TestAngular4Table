@@ -1,0 +1,59 @@
+﻿<form novalidate (ngSubmit)="save()" [formGroup]="userFrm">
+    <div>
+        <h1>Add Dept and Employees</h1>
+    </div>
+    <div class="frm-ctrl">
+        <md-input-container>
+            <input mdInput placeholder="Department Name" formControlName="DeptName">
+        </md-input-container>
+    </div>
+    <div class="frm-ctrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Emp Name</th>
+                    <th>Salary</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <md-input-container>
+                            <input mdInput placeholder="Emp Name" [(ngModel)]="newAttribute.EmpName" formControlName="EmpName">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <md-input-container>
+                            <input mdInput placeholder="Salary" [(ngModel)]="newAttribute.Salary" formControlName="Salary">
+                        </md-input-container>
+                    </td>
+                    <td>
+                        <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table formControlName="Employees">
+            <tr *ngFor="let field of fieldArray; let i = index">
+                <td>
+                    {{field.EmpName}}
+                </td>
+                <td>
+                    {{field.Salary}}
+                </td>
+                <td>
+                    <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="btn btn-default" type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var global_1 = require("../Shared/global");
 var user_service_1 = require("../Service/user.service");
 var AddToList = (function () {
     function AddToList(fb, _userService) {
         this.fb = fb;
         this._userService = _userService;
         this.fieldArray = [];
+        this.fieldArray1 = [];
         this.newAttribute = {};
         this.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
             'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
@@ -35,7 +35,8 @@ var AddToList = (function () {
         this.userFrm = this.fb.group({
             newAttributeCode: [''],
             newAttributeName: [''],
-            newAttributePrice: ['']
+            newAttributePrice: [''],
+            formValues: []
         });
         this.filteredStates = this.userFrm.controls["newAttributeCode"].valueChanges.startWith(null).map(function (name) { return _this.filterStates(name); });
     };
@@ -47,9 +48,11 @@ var AddToList = (function () {
     AddToList.prototype.deleteFieldValue = function (index) {
         this.fieldArray.splice(index, 1);
     };
-    AddToList.prototype.save = function () {
-        console.log(JSON.stringify(this.fieldArray));
-        this._userService.masterdetail(global_1.Global.BASE_MASTERDETAIL_ENDPOINT, JSON.stringify(this.fieldArray)).subscribe();
+    AddToList.prototype.save = function (formData) {
+        //console.log(JSON.stringify(this.fieldArray));
+        this.fieldArray1.push(formData);
+        console.log("Form Data: " + this.fieldArray1);
+        //this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, this.fieldArray).subscribe();
     };
     return AddToList;
 }());

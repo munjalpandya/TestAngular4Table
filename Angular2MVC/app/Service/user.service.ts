@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
@@ -22,6 +23,7 @@ export class UserService {
         let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+        
         return this._http.post(url, body, options)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
@@ -44,10 +46,13 @@ export class UserService {
             .catch(this.handleError);
     }
 
-    masterdetail(url: string, data: any): Observable<any> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this._http.post(url + data, options)
+    masterdetail(url: string, model: any): Observable<any> {
+        let body = JSON.stringify(model);
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        console.log("Body: " + body);
+        //console.log("Options: " + options);
+        return this._http.get(url + body)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }
