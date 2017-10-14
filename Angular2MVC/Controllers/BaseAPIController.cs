@@ -4,6 +4,8 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Xml.Linq;
+using System.Runtime.Serialization;
 
 namespace Angular2MVC.Controllers
 {
@@ -15,6 +17,20 @@ namespace Angular2MVC.Controllers
             var response = Request.CreateResponse(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
             return response;
+        }
+
+        protected string ToXML(object obj)
+        {
+            XDocument doc = new XDocument();
+            using (var writer = doc.CreateWriter())
+            {
+                // write xml into the writer
+                var serializer = new DataContractSerializer(obj.GetType());
+                serializer.WriteObject(writer, obj);
+            }
+
+            string strXML = doc.ToString();
+            return strXML;
         }
 
         protected HttpResponseMessage ErrorJson(dynamic obj)

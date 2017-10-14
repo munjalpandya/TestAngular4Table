@@ -29,6 +29,7 @@ var orderby_1 = require("./Shared/datagrid/orderby");
 var samplepagination_component_1 = require("./Components/samplepagination.component");
 var pagination_component_1 = require("./Shared/datagrid/pagination/pagination.component");
 var addtolist_component_1 = require("./components/addtolist.component");
+var md_component_1 = require("./components/md.component");
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -46,7 +47,7 @@ AppModule = __decorate([
             material_1.MaterialModule,
             material_1.MdNativeDateModule, material_1.MdTableModule],
         declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, user_pipe_1.UserFilterPipe, search_component_1.SearchComponent, manageuser_component_1.ManageUser,
-            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, userlist_component_1.UserListComponent, samplepagination_component_1.SamplePaginationComponent, pagination_component_1.PaginationComponent, addtolist_component_1.AddToList
+            datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, userlist_component_1.UserListComponent, samplepagination_component_1.SamplePaginationComponent, pagination_component_1.PaginationComponent, addtolist_component_1.AddToList, md_component_1.MD
         ],
         providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, user_pipe_1.UserFilterPipe],
         entryComponents: [manageuser_component_1.ManageUser],

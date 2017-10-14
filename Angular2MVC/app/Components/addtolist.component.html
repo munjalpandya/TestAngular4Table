@@ -1,5 +1,5 @@
 ﻿<form novalidate (ngSubmit)="save(userFrm)" [formGroup]="userFrm">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered" formArrayName="AllRecords">
         <thead>
             <tr>
                 <th>Code</th>

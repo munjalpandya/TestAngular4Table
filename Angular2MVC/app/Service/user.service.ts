@@ -47,12 +47,12 @@ export class UserService {
     }
 
     masterdetail(url: string, model: any): Observable<any> {
-        let body = JSON.stringify(model);
-        //let headers = new Headers({ 'Content-Type': 'application/json' });
-        //let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify(model._value);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
         console.log("Body: " + body);
-        //console.log("Options: " + options);
-        return this._http.get(url + body)
+//        console.log("Options: " + options);
+        return this._http.post(url, body, options)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }

@@ -1,42 +1,54 @@
 ﻿import { Component, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { Global } from '../Shared/global';
 import { UserService } from '../Service/user.service';
+import { IDept } from '../Model/Dept';
 
 @Component({
     templateUrl: 'app/Components/md.component.html'
 })
 
 export class MD {
-    private empArray: Array<any> = [];
-    private newAttribute: any = {};
-
+    
     userFrm: FormGroup;
 
-    constructor(private fb: FormBuilder, private _userService: UserService) { }
+    constructor(private _fb: FormBuilder, private _userService: UserService) { }
 
-    ngOnInit(): void {
-        this.userFrm = this.fb.group({
+    ngOnInit() {
+        this.userFrm = this._fb.group({
             DeptID: [''],
-            DeptName: [''],
-            EmpID: [''],
-            EmpName: [''],
-            Salary: [''],
-            Employees:['']
+            DeptName: ['', [Validators.required, Validators.maxLength(50)]],
+            Employees: this._fb.array([
+                this.initEmployees(),
+            ])
         });
     }
 
-    addFieldValue() {
-        this.empArray.push(this.newAttribute)
-        this.newAttribute = {};
-        //console.log(this.fieldArray);
+    initEmployees() {
+        return this._fb.group({
+            EmpID: [''],
+            EmpName: ['', Validators.required],
+            DeptID: [''],
+            Salary: ['']
+        });
     }
 
-    deleteFieldValue(index: any) {
-        this.fieldArray.splice(index, 1);
+    addEmployee() {
+        const control = <FormArray>this.userFrm.controls['Employees'];
+        control.push(this.initEmployees());
     }
 
-    save() {
+    removeAddress(i: number) {
+        const control = <FormArray>this.userFrm.controls['Employees'];
+        control.removeAt(i);
+    }
 
+    save(model: any) {
+        // call API to save
+        // ...
+        console.log(model);
+        //console.log("Json Model: " + model.json());
+        console.log(JSON.stringify(model._value));
+        this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, model).subscribe();
     }
 }

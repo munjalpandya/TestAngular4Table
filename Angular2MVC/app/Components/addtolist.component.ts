@@ -12,6 +12,7 @@ export class AddToList {
     private fieldArray1: Array<any> = [];
     private newAttribute: any = {};
     userFrm: FormGroup;
+    detailFrm: FormGroup;
 
     states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
         'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
@@ -36,6 +37,14 @@ export class AddToList {
             newAttributePrice: ['']
         });
         this.filteredStates = this.userFrm.controls["newAttributeCode"].valueChanges.startWith(null).map(name => this.filterStates(name));
+        this.userFrm.valueChanges.subscribe(data => this.onValueChanged(data));
+        this.onValueChanged();
+
+    }
+
+    onValueChanged(data?: any) {
+        if (!this.userFrm) { return; }
+        const form = this.userFrm;
     }
     
     addFieldValue() {
@@ -51,7 +60,8 @@ export class AddToList {
     save(formData: any) {
         //console.log(JSON.stringify(this.fieldArray));
         this.fieldArray1.push(formData);
-        console.log("Form Data: "+ this.fieldArray1);
+        console.log("Raw Form Data: " + formData);
+        console.log("Form Data Array: " + this.fieldArray1);
         //this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, this.fieldArray).subscribe();
     }
 }

@@ -51,12 +51,12 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     UserService.prototype.masterdetail = function (url, model) {
-        var body = JSON.stringify(model);
-        //let headers = new Headers({ 'Content-Type': 'application/json' });
-        //let options = new RequestOptions({ headers: headers });
+        var body = JSON.stringify(model._value);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
         console.log("Body: " + body);
-        //console.log("Options: " + options);
-        return this._http.get(url + body)
+        //        console.log("Options: " + options);
+        return this._http.post(url, body, options)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

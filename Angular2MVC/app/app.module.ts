@@ -26,6 +26,8 @@ import { SamplePaginationComponent } from './Components/samplepagination.compone
 import { PaginationComponent } from './Shared/datagrid/pagination/pagination.component';
 
 import { AddToList } from './components/addtolist.component';
+
+import { MD } from './components/md.component';
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -37,7 +39,7 @@ import { AddToList } from './components/addtolist.component';
         MaterialModule,
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
-        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
+        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList, MD
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

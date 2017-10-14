@@ -6,6 +6,7 @@ import { UserListComponent } from './components/userlist.component';
 import { HomeComponent } from './components/home.component';
 import { SamplePaginationComponent } from './Components/samplepagination.component';
 import { AddToList } from './components/addtolist.component';
+import { MD } from './components/md.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
     { path: 'user', component: UserComponent },
     { path: 'userlist', component: UserListComponent },
     { path: 'samplepagination', component: SamplePaginationComponent },
-    { path: 'addtolist', component: AddToList }
+    { path: 'addtolist', component: AddToList },
+    { path: 'masterdetail', component: MD }
 ];
 
 export const routing: ModuleWithProviders =

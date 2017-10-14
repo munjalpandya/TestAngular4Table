@@ -35,10 +35,17 @@ var AddToList = (function () {
         this.userFrm = this.fb.group({
             newAttributeCode: [''],
             newAttributeName: [''],
-            newAttributePrice: [''],
-            formValues: []
+            newAttributePrice: ['']
         });
         this.filteredStates = this.userFrm.controls["newAttributeCode"].valueChanges.startWith(null).map(function (name) { return _this.filterStates(name); });
+        this.userFrm.valueChanges.subscribe(function (data) { return _this.onValueChanged(data); });
+        this.onValueChanged();
+    };
+    AddToList.prototype.onValueChanged = function (data) {
+        if (!this.userFrm) {
+            return;
+        }
+        var form = this.userFrm;
     };
     AddToList.prototype.addFieldValue = function () {
         this.fieldArray.push(this.newAttribute);
@@ -51,7 +58,8 @@ var AddToList = (function () {
     AddToList.prototype.save = function (formData) {
         //console.log(JSON.stringify(this.fieldArray));
         this.fieldArray1.push(formData);
-        console.log("Form Data: " + this.fieldArray1);
+        console.log("Raw Form Data: " + formData);
+        console.log("Form Data Array: " + this.fieldArray1);
         //this._userService.masterdetail(Global.BASE_MASTERDETAIL_ENDPOINT, this.fieldArray).subscribe();
     };
     return AddToList;

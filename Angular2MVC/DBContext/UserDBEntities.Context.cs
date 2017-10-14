@@ -31,6 +31,13 @@ namespace Angular2MVC.DBContext
         public virtual DbSet<tblDeptMaster> tblDeptMasters { get; set; }
         public virtual DbSet<tblEmpMaster> tblEmpMasters { get; set; }
     
-        
+        public virtual ObjectResult<string> spAdd_DeptEmp(string pstrRequestXML)
+        {
+            var pstrRequestXMLParameter = pstrRequestXML != null ?
+                new ObjectParameter("pstrRequestXML", pstrRequestXML) :
+                new ObjectParameter("pstrRequestXML", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spAdd_DeptEmp", pstrRequestXMLParameter);
+        }
     }
 }

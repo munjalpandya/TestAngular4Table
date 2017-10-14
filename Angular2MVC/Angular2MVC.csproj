@@ -166,6 +166,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDetailAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
+    <Compile Include="DBContext\tblDeptEmp.cs" />
     <Compile Include="DBContext\tblDeptMaster.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>
@@ -313,7 +314,6 @@
     <TypeScriptCompile Include="app\filter\user.pipe.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Model\Dept.ts" />
-    <TypeScriptCompile Include="app\Model\Emp.ts" />
     <TypeScriptCompile Include="app\Model\user.ts" />
     <TypeScriptCompile Include="app\Service\user.service.ts" />
     <TypeScriptCompile Include="app\Shared\datagrid\datagrid.component.ts" />

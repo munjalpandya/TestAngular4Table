@@ -36,6 +36,9 @@
           <Property Name="Zip" Type="nvarchar" MaxLength="250" />
           <Property Name="Country" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <Function Name="spAdd_DeptEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pstrRequestXML" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="UserDBModelStoreContainer">
           <EntitySet Name="tblDeptMaster" EntityType="Self.tblDeptMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblEmpMaster" EntityType="Self.tblEmpMaster" Schema="dbo" store:Type="Tables" />
@@ -64,6 +67,9 @@
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
           <EntitySet Name="tblDeptMasters" EntityType="UserDBModel.tblDeptMaster" />
           <EntitySet Name="tblEmpMasters" EntityType="UserDBModel.tblEmpMaster" />
+          <FunctionImport Name="spAdd_DeptEmp" ReturnType="Collection(String)">
+            <Parameter Name="pstrRequestXML" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="tblDeptMaster">
           <Key>
@@ -121,6 +127,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAdd_DeptEmp" FunctionName="UserDBModel.Store.spAdd_DeptEmp" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
