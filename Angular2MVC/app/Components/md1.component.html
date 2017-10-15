@@ -1,0 +1,54 @@
+﻿<form novalidate (ngSubmit)="save(userFrm)" [formGroup]="userFrm">
+    <div class="form-group">
+        <label>Department Name</label>
+        <input type="text" class="form-control" formControlName="DeptName">
+        <small *ngIf="!userFrm.controls.DeptName.valid" class="text-danger">
+            Department Name is required (maximum 50 characters).
+        </small>
+    </div>
+    <!--addresses-->
+    <div formArrayName="Employees">
+        <div *ngFor="let employee of userFrm.controls.Employees.controls; let i=index" class="panel panel-default">
+            <div class="panel-heading">
+                <span>Employee {{i + 1}}</span>
+                <span class="glyphicon glyphicon-remove pull-right" *ngIf="userFrm.controls.Employees.controls.length > 1" (click)="removeAddress(i)"></span>
+            </div>
+            <div class="panel-body" [formGroupName]="i">
+                <div class="form-group col-xs-6">
+                    <label>Employee Name</label>
+                    <input type="text" class="form-control" formControlName="EmpName">
+                    <small [hidden]="userFrm.controls.Employees.controls[i].controls.EmpName.valid" class="text-danger">
+                        Employee Name is required
+                    </small>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label>Salary</label>
+                    <input type="text" class="form-control" formControlName="Salary">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-20">
+        <a (click)="addEmployee()" style="cursor: default">
+            Add another employee +
+        </a>
+    </div>
+    <!--<div formArrayName="Employees1">
+        <div *ngFor="let employee of userFrm.controls.Employees1.controls; let i=index" class="panel panel-default">
+            <div class="panel-body" [formGroupName]="i">
+                <div class="form-group col-xs-6">
+                    <label formControlName="EmpName">Employee Name</label>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="margin-20">
+        <button type="submit" class="btn btn-primary pull-right" [disabled]="userFrm.invalid">Submit</button>
+    </div>
+    <div class="clearfix"></div>
+    <!--<div class="margin-20">
+        <div>myForm details:-</div>
+        <pre>Is myForm valid?: <br>{{userFrm.valid | json}}</pre>
+        <pre>form value: <br>{{userFrm.value | json}}</pre>
+    </div>-->
+</form>
