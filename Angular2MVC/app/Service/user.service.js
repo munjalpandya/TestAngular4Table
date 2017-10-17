@@ -35,6 +35,18 @@ var UserService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    UserService.prototype.postwithupload = function (url, model, fileToUpload) {
+        debugger;
+        var body = JSON.stringify(model);
+        var formData = new FormData();
+        formData.append("Data", body);
+        formData.append('UploadPic', fileToUpload);
+        var headers = new http_1.Headers({});
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post(url, formData, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     UserService.prototype.put = function (url, id, model) {
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -57,6 +69,20 @@ var UserService = (function () {
         console.log("Body: " + body);
         //        console.log("Options: " + options);
         return this._http.post(url, body, options)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.uploadpic = function (url, model) {
+        debugger;
+        console.log(model);
+        var formData = new FormData();
+        formData.append('UploadPic', model);
+        //let body = JSON.stringify(formData);
+        //let headers = new Headers({ 'Content-Type': 'multipart/form-data' });
+        var options = new http_1.RequestOptions({});
+        //console.log("Body: " + body);
+        //        console.log("Options: " + options);
+        return this._http.post(url, formData, options)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

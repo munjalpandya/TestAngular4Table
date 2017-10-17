@@ -8,5 +8,6 @@
     City: string,
     State: string,
     Zip: string,
-    Country: string
+    Country: string,
+    UserPic: string
 }

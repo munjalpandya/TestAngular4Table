@@ -97,7 +97,8 @@ var ManageUser = (function () {
             City: ['', forms_1.Validators.required],
             State: ['', forms_1.Validators.required],
             Zip: ['', forms_1.Validators.required],
-            Country: ['', forms_1.Validators.required]
+            Country: ['', forms_1.Validators.required],
+            UserPic: ['']
         });
         this.filteredStates = this.userFrm.controls["State"].valueChanges.startWith(null).map(function (name) { return _this.filterStates(name); });
         this.userFrm.valueChanges.subscribe(function (data) { return _this.onValueChanged(data); });
@@ -125,21 +126,37 @@ var ManageUser = (function () {
             }
         }
     };
+    ManageUser.prototype.uploadFile = function (event) {
+        var files = event.target.files;
+        var formData = new FormData();
+        if (files.length > 0) {
+            console.log(files); // You will see the file
+            //            let file: File = files[0];
+            //            formData.append("UserPic", file, file.name);
+        }
+    };
     ManageUser.prototype.onSubmit = function (formData) {
         var _this = this;
         switch (this.dbops) {
             case enum_1.DBOperation.create:
-                this._userService.post(global_1.Global.BASE_USER_ENDPOINT, formData.value).subscribe(function (data) {
-                    if (data == 1) {
-                        _this.dialogRef.close("success");
-                    }
-                    else {
+                debugger;
+                var fi = this.fileInput.nativeElement;
+                if (fi.files && fi.files[0]) {
+                    var fileToUpload = fi.files[0];
+                    //formData._value.add("UserPic", fileToUpload);
+                    //<FormData>(formData).append("UserPic", fileToUpload, fileToUpload.name)
+                    this._userService.postwithupload(global_1.Global.BASE_USER_ENDPOINT1, formData.value, fileToUpload).subscribe(function (data) {
+                        if (data == 1) {
+                            _this.dialogRef.close("success");
+                        }
+                        else {
+                            _this.dialogRef.close("error");
+                        }
+                    }, function (error) {
                         _this.dialogRef.close("error");
-                    }
-                }, function (error) {
-                    _this.dialogRef.close("error");
-                });
-                break;
+                    });
+                    break;
+                }
             case enum_1.DBOperation.update:
                 this._userService.put(global_1.Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(function (data) {
                     if (data == 1) {
@@ -171,6 +188,10 @@ var ManageUser = (function () {
     };
     return ManageUser;
 }());
+__decorate([
+    core_1.ViewChild("fileInput"),
+    __metadata("design:type", Object)
+], ManageUser.prototype, "fileInput", void 0);
 ManageUser = __decorate([
     core_1.Component({
         templateUrl: 'app/Components/manageuser.component.html',

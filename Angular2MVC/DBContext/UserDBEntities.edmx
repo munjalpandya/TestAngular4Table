@@ -35,6 +35,7 @@
           <Property Name="State" Type="nvarchar" MaxLength="250" />
           <Property Name="Zip" Type="nvarchar" MaxLength="250" />
           <Property Name="Country" Type="nvarchar" MaxLength="250" />
+          <Property Name="UserPic" Type="varchar" MaxLength="100" />
         </EntityType>
         <Function Name="spAdd_DeptEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pstrRequestXML" Type="varchar" Mode="In" />
@@ -62,13 +63,14 @@
           <Property Name="State" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Zip" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserPic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="UserDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
           <EntitySet Name="tblDeptMasters" EntityType="UserDBModel.tblDeptMaster" />
           <EntitySet Name="tblEmpMasters" EntityType="UserDBModel.tblEmpMaster" />
           <FunctionImport Name="spAdd_DeptEmp" ReturnType="Collection(String)">
-            <Parameter Name="pstrRequestXML" Mode="In" Type="String" />
+          <Parameter Name="pstrRequestXML" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="tblDeptMaster">
@@ -96,6 +98,7 @@
           <EntitySetMapping Name="TblUsers">
             <EntityTypeMapping TypeName="UserDBModel.TblUser">
               <MappingFragment StoreEntitySet="TblUser">
+                <ScalarProperty Name="UserPic" ColumnName="UserPic" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Zip" ColumnName="Zip" />
                 <ScalarProperty Name="State" ColumnName="State" />

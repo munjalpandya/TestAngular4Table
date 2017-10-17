@@ -25,6 +25,8 @@ export class ManageUser implements OnInit {
     selectedOption: string;
     user: IUser;
 
+    @ViewChild("fileInput") fileInput: any;
+
     country = [
         { value: 'USA', viewValue: 'USA' },
         { value: 'Canada', viewValue: 'Canada' }
@@ -62,7 +64,8 @@ export class ManageUser implements OnInit {
             City: ['', Validators.required],
             State: ['', Validators.required],
             Zip: ['', Validators.required],
-            Country: ['', Validators.required]
+            Country: ['', Validators.required],
+            UserPic: ['']
         });
         this.filteredStates = this.userFrm.controls["State"].valueChanges.startWith(null).map(name => this.filterStates(name));
         this.userFrm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -145,24 +148,44 @@ export class ManageUser implements OnInit {
         }
     };
 
+    uploadFile(event: any) {
+        let files: FileList = event.target.files;
+        let formData: FormData = new FormData();
+        if (files.length > 0) {
+            console.log(files); // You will see the file
+//            let file: File = files[0];
+//            formData.append("UserPic", file, file.name);
+            
+        }
+    }
+
     onSubmit(formData: any) {
         switch (this.dbops) {
             case DBOperation.create:
-                this._userService.post(Global.BASE_USER_ENDPOINT, formData.value).subscribe(
-                    data => {
-                        if (data == 1) //Success
-                        {
-                            this.dialogRef.close("success");
-                        }
-                        else {
+                debugger;
+                let fi = this.fileInput.nativeElement;
+                if (fi.files && fi.files[0]) {
+                    let fileToUpload = fi.files[0];
+                    //formData._value.add("UserPic", fileToUpload);
+                    //<FormData>(formData).append("UserPic", fileToUpload, fileToUpload.name)
+                    this._userService.postwithupload(Global.BASE_USER_ENDPOINT1, formData.value, fileToUpload).subscribe(
+                        data => {
+                            if (data == 1) //Success
+                            {
+                                this.dialogRef.close("success");
+                            }
+                            else {
+                                this.dialogRef.close("error");
+                            }
+                        },
+                        error => {
                             this.dialogRef.close("error");
                         }
-                    },
-                    error => {
-                        this.dialogRef.close("error");
-                    }
-                );
-                break;
+                    );
+                    break;
+                }
+                
+                
             case DBOperation.update:
                 this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
                     data => {

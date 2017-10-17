@@ -29,6 +29,21 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    postwithupload(url: string, model: any, fileToUpload: any): Observable<any> {
+        debugger;
+        let body = JSON.stringify(model);
+        var formData = new FormData();
+        formData.append("Data", body);
+        formData.append('UploadPic', fileToUpload);
+        
+        let headers = new Headers({ });
+        let options = new RequestOptions({ headers: headers });
+
+        return this._http.post(url, formData, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
     put(url: string, id: number, model: any): Observable<any> {
         let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -56,6 +71,22 @@ export class UserService {
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }
+
+    uploadpic(url: string, model: any): Observable<any> {
+        debugger;
+        console.log(model);
+        var formData = new FormData();
+        formData.append('UploadPic', model);
+        //let body = JSON.stringify(formData);
+        //let headers = new Headers({ 'Content-Type': 'multipart/form-data' });
+        let options = new RequestOptions({});
+        //console.log("Body: " + body);
+        //        console.log("Options: " + options);
+        return this._http.post(url, formData, options)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
 
     private handleError(error: Response) {
         console.error(error);

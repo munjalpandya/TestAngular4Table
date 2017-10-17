@@ -8,6 +8,7 @@ import { SamplePaginationComponent } from './Components/samplepagination.compone
 import { AddToList } from './components/addtolist.component';
 import { MD } from './components/md.component';
 import { MD1 } from './components/md1.component';
+import { UploadPic } from './components/uploadpic.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
     { path: 'samplepagination', component: SamplePaginationComponent },
     { path: 'addtolist', component: AddToList },
     { path: 'masterdetail', component: MD },
-    { path: 'md', component: MD1 }
+    { path: 'md', component: MD1 },
+    { path: 'uploadpic', component: UploadPic }
 ];
 
 export const routing: ModuleWithProviders =
