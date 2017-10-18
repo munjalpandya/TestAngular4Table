@@ -91,7 +91,12 @@
             </div>
         </div>
         <div class="frm-ctrl">
-            <input #fileInput type="file" name="UserPic" id="UserPic" (change)="uploadFile($event)" />
+            <div class="line_ctrl">
+                Upload Your Pic:
+            </div>
+            <div class="line_ctrl">
+                <input #fileInput type="file" name="UserPic" id="UserPic" (change)="uploadFile($event)" />
+            </div>
         </div>
     </div>
     <md-dialog-actions class="md-dialog-footer" align="end">

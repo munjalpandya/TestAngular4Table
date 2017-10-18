@@ -1,0 +1,44 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Hierarchal Grid Sample
+    </div>
+    <br />
+    <div class='panel-body'>
+        <table class="table table-hover table-striped table-sortable" *ngIf='depts ; else loadingScreen;'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Dept Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of depts">
+                    <td></td>
+                    <td>{{ row.DeptName }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Emp Name</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let emp of row.Employees">
+                                    <td>{{ emp.EmpName }}</td>
+                                    <td>{{ emp.Salary }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <ng-template #loadingScreen>
+            <div class="alert alert-info" role="alert">
+                <md-progress-spinner mode="indeterminate" style="width:50px; height:50px"></md-progress-spinner>loading...
+            </div>
+        </ng-template>
+    </div>
+</div>

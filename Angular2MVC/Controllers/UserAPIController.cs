@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -74,12 +75,16 @@ namespace Angular2MVC.Controllers
             JavaScriptSerializer json_serializer = new JavaScriptSerializer();
             TblUser value = new TblUser();
             value = JsonConvert.DeserializeObject<TblUser>(httpRequest.Params["Data"].ToString().Replace("null","0"));
-            
+            string strFileExtension = "";
+            string strFileName = System.Guid.NewGuid().ToString();
             
             if (httpRequest.Files.Count > 0)
             {
                 var postedFile = httpRequest.Files[0];
-                var filePath = HttpContext.Current.Server.MapPath("~/images/" + postedFile.FileName);
+                strFileExtension = Path.GetExtension(postedFile.FileName);
+                var filePath = HttpContext.Current.Server.MapPath("~/images/" + strFileName + strFileExtension);
+                value.UserPic = strFileName + strFileExtension;
+                postedFile.SaveAs(filePath);
             }
 
             UserDB.TblUsers.Add(value);

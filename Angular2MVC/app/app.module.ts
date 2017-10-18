@@ -31,6 +31,8 @@ import { MD } from './components/md.component';
 import { MD1 } from './components/md1.component';
 
 import { UploadPic } from './components/uploadpic.component';
+
+import { MDGridComponent } from './components/mdgrid.component';
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -42,7 +44,7 @@ import { UploadPic } from './components/uploadpic.component';
         MaterialModule,
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
-        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList, MD, MD1, UploadPic
+        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList, MD, MD1, UploadPic, MDGridComponent
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

@@ -168,6 +168,7 @@
     <Compile Include="Controllers\MasterDetailAPIController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
     <Compile Include="DBContext\tblDeptEmp.cs" />
+    <Compile Include="DBContext\tblDeptEmp1.cs" />
     <Compile Include="DBContext\tblDeptMaster.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>
@@ -195,6 +196,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Modules\modGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +204,7 @@
     <Content Include="app\Components\manageuser.component.html" />
     <Content Include="app\Components\md.component.html" />
     <Content Include="app\Components\md1.component.html" />
+    <Content Include="app\Components\mdgrid.component.html" />
     <Content Include="app\Components\samplepagination.component.html" />
     <Content Include="app\Components\uploadpic.component.html" />
     <Content Include="app\Components\user.component.html" />
@@ -311,6 +314,7 @@
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
     <TypeScriptCompile Include="app\Components\md.component.ts" />
     <TypeScriptCompile Include="app\Components\md1.component.ts" />
+    <TypeScriptCompile Include="app\Components\mdgrid.component.ts" />
     <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
     <TypeScriptCompile Include="app\Components\uploadpic.component.ts" />
     <TypeScriptCompile Include="app\Components\user.component.ts" />

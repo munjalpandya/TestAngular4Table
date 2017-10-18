@@ -9,6 +9,7 @@ var addtolist_component_1 = require("./components/addtolist.component");
 var md_component_1 = require("./components/md.component");
 var md1_component_1 = require("./components/md1.component");
 var uploadpic_component_1 = require("./components/uploadpic.component");
+var mdgrid_component_1 = require("./components/mdgrid.component");
 var appRoutes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
@@ -18,7 +19,8 @@ var appRoutes = [
     { path: 'addtolist', component: addtolist_component_1.AddToList },
     { path: 'masterdetail', component: md_component_1.MD },
     { path: 'md', component: md1_component_1.MD1 },
-    { path: 'uploadpic', component: uploadpic_component_1.UploadPic }
+    { path: 'uploadpic', component: uploadpic_component_1.UploadPic },
+    { path: 'mdgrid', component: mdgrid_component_1.MDGridComponent }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

@@ -1,8 +1,10 @@
 ﻿using Angular2MVC.DBContext;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using Angular2MVC.Modules;
 
 namespace Angular2MVC.Controllers
 {
@@ -10,7 +12,32 @@ namespace Angular2MVC.Controllers
     {
         public HttpResponseMessage Get()
         {
-            return ToJson(UserDB.tblDeptMasters.AsEnumerable());
+            tblDeptEmp1 objDeptEmp = new tblDeptEmp1();
+            
+            var deps = (from dm in UserDB.tblDeptMasters
+                        select new
+                        {
+                            DeptID = dm.DeptID,
+                            DeptName = dm.DeptName,
+                            Employees = (from em in UserDB.tblEmpMasters
+                                         where (em.DeptID == dm.DeptID)
+                                         select new
+                                         {
+                                             EmpID = em.EmpID,
+                                             EmpName = em.EmpName,
+                                             DeptID = em.DeptID,
+                                             Salary = em.Salary
+                                         })
+                        });
+
+            return ToJson(deps);
+            
+        }
+
+        [Route("api/deptapi/emp")]
+        public HttpResponseMessage GetEmp()
+        {
+            return ToJson(UserDB.tblEmpMasters.AsEnumerable());
             // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
         }
 

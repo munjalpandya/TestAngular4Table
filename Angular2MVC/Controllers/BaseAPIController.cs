@@ -6,6 +6,9 @@ using System.Text;
 using System.Web.Http;
 using System.Xml.Linq;
 using System.Runtime.Serialization;
+using System.Data;
+using System.Collections.Generic;
+using System;
 
 namespace Angular2MVC.Controllers
 {
@@ -39,5 +42,6 @@ namespace Angular2MVC.Controllers
             response.Content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
             return response;
         }
+
     }
 }
