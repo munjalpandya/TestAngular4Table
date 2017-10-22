@@ -175,6 +175,9 @@
     <Compile Include="DBContext\tblEmpMaster.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\tblMenuMaster.cs">
+      <DependentUpon>UserDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\TblUser.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>

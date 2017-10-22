@@ -21,6 +21,15 @@
           <Property Name="DeptID" Type="int" Nullable="false" />
           <Property Name="Salary" Type="money" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblMenuMaster">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuControlName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentMenuID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -43,6 +52,7 @@
         <EntityContainer Name="UserDBModelStoreContainer">
           <EntitySet Name="tblDeptMaster" EntityType="Self.tblDeptMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblEmpMaster" EntityType="Self.tblEmpMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenuMaster" EntityType="Self.tblMenuMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -72,6 +82,7 @@
           <FunctionImport Name="spAdd_DeptEmp" ReturnType="Collection(String)">
           <Parameter Name="pstrRequestXML" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="tblMenuMasters" EntityType="UserDBModel.tblMenuMaster" />
         </EntityContainer>
         <EntityType Name="tblDeptMaster">
           <Key>
@@ -88,6 +99,15 @@
           <Property Name="EmpName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DeptID" Type="Int32" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="tblMenuMaster">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuControlName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentMenuID" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -131,6 +151,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spAdd_DeptEmp" FunctionName="UserDBModel.Store.spAdd_DeptEmp" />
+          <EntitySetMapping Name="tblMenuMasters">
+            <EntityTypeMapping TypeName="UserDBModel.tblMenuMaster">
+              <MappingFragment StoreEntitySet="tblMenuMaster">
+                <ScalarProperty Name="ParentMenuID" ColumnName="ParentMenuID" />
+                <ScalarProperty Name="MenuControlName" ColumnName="MenuControlName" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -30,6 +30,7 @@ namespace Angular2MVC.DBContext
         public virtual DbSet<TblUser> TblUsers { get; set; }
         public virtual DbSet<tblDeptMaster> tblDeptMasters { get; set; }
         public virtual DbSet<tblEmpMaster> tblEmpMasters { get; set; }
+        public virtual DbSet<tblMenuMaster> tblMenuMasters { get; set; }
     
         public virtual ObjectResult<string> spAdd_DeptEmp(string pstrRequestXML)
         {
