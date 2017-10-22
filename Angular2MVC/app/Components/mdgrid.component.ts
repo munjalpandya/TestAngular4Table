@@ -13,6 +13,8 @@ import { MdDialog, MdDialogRef, MdPaginator, MdSort } from '@angular/material';
 export class MDGridComponent implements OnInit {
     depts: IDept[];
     dept: IDept;
+    //hideElement: boolean = false;
+
 
     emps: IEmp[];
     emp: IEmp;
@@ -26,7 +28,7 @@ export class MDGridComponent implements OnInit {
 
     LoadDept(): void {
         this._userService.get(Global.BASE_DEPT_ENDPOINT)
-            .subscribe(depts => { this.depts = depts }
+            .subscribe(depts => { this.depts = depts;  }
             );
     }
 
@@ -34,5 +36,19 @@ export class MDGridComponent implements OnInit {
         this._userService.get(Global.BASE_EMP_ENDPOINT)
             .subscribe(emps => { this.emps = emps }
             );
+    }
+
+    collapseAll(): void {
+        this.depts.forEach((dept) => {
+            dept.IsShow = false;
+        });
+    }
+
+    toggleElement(rowIndex: any, value: any) {
+        if (!value.IsShow)
+        {
+            this.collapseAll();
+        }
+        value.IsShow = !value.IsShow;
     }
 }

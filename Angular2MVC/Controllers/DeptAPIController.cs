@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
-using Angular2MVC.Modules;
 
 namespace Angular2MVC.Controllers
 {
@@ -27,7 +26,8 @@ namespace Angular2MVC.Controllers
                                              EmpName = em.EmpName,
                                              DeptID = em.DeptID,
                                              Salary = em.Salary
-                                         })
+                                         }),
+                             IsShow = false
                         });
 
             return ToJson(deps);

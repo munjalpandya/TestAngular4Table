@@ -1,7 +1,8 @@
 ﻿export interface IDept {
     DeptID: number,
     DeptName: string,
-    Employees: IEmp[]
+    Employees: IEmp[],
+    IsShow: boolean
 }
 
 export interface IEmp {

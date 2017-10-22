@@ -11,11 +11,16 @@
                     <th>Dept Name</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let row of depts">
-                    <td></td>
-                    <td>{{ row.DeptName }}</td>
+            <tbody *ngFor="let row of depts; let i = index">
+                <tr>
                     <td>
+                        <button style="width: 20px;" type="button" color="primary" md-button (click)="toggleElement(i, row)">-</button>
+                        <!--<button style="width: 20px;" type="button" color="primary" md-button (click)="emp.expanded = true">+</button>-->
+                    </td>
+                    <td>{{ row.DeptName }}</td>
+                </tr>
+                <tr [hidden]="!row.IsShow">
+                    <td colspan="2">
                         <table>
                             <thead>
                                 <tr>
@@ -23,8 +28,8 @@
                                     <th>Salary</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr *ngFor="let emp of row.Employees">
+                            <tbody *ngFor="let emp of row.Employees">
+                                <tr>
                                     <td>{{ emp.EmpName }}</td>
                                     <td>{{ emp.Salary }}</td>
                                 </tr>
@@ -32,7 +37,6 @@
                         </table>
                     </td>
                 </tr>
-
             </tbody>
         </table>
         <ng-template #loadingScreen>
