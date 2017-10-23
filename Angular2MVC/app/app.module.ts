@@ -21,6 +21,8 @@ import { DataGridUtil } from './Shared/datagrid/datagrid.util';
 import { Format } from './Shared/datagrid/format';
 import { OrderBy } from './Shared/datagrid/orderby';
 
+import { MDDataGrid } from './Shared/datagrid/mddatagrid.component';
+
 import { SamplePaginationComponent } from './Components/samplepagination.component';
 
 import { PaginationComponent } from './Shared/datagrid/pagination/pagination.component';
@@ -33,6 +35,9 @@ import { MD1 } from './components/md1.component';
 import { UploadPic } from './components/uploadpic.component';
 
 import { MDGridComponent } from './components/mdgrid.component';
+import { MDGrid1 } from './components/mdgrid1';
+
+import { AdminHeaderComponent } from './Components/adminheader.component';
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -44,7 +49,8 @@ import { MDGridComponent } from './components/mdgrid.component';
         MaterialModule,
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
-        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList, MD, MD1, UploadPic, MDGridComponent
+        DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
+        , MD, MD1, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

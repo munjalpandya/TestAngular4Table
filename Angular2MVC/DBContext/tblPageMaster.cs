@@ -12,21 +12,16 @@ namespace Angular2MVC.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class tblMenuMaster
+    public partial class tblPageMaster
     {
+        public int PageID { get; set; }
         public int MenuID { get; set; }
-        public int ParentMenuID { get; set; }
-        public string MenuCaption { get; set; }
-        public string MenuControlName { get; set; }
-        public byte MenuLevel { get; set; }
-        public byte OrderNo { get; set; }
-        public string LogoUrl { get; set; }
-        public bool IsNewWindow { get; set; }
-        public bool IsActive { get; set; }
-        public byte SubMenuNo { get; set; }
-        public byte TotSubMenu { get; set; }
-        public string MenuKey { get; set; }
-        public byte CommandID { get; set; }
+        public string PageCaption { get; set; }
+        public string PageURL { get; set; }
+        public bool bitMenuDefaultPage { get; set; }
+        public bool IsMaintenance { get; set; }
+        public string MaintenanceMessage { get; set; }
+        public int CommandID { get; set; }
         public int CreateBy { get; set; }
         public System.DateTime CreateDate { get; set; }
         public string CreateIP { get; set; }

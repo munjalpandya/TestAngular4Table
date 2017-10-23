@@ -11,5 +11,6 @@ Global.BASE_MASTERDETAIL_ENDPOINT = 'api/masterdetailapi/';
 Global.BASE_UPLOADPIC_ENDPOINT = 'api/uploadpic/';
 Global.BASE_DEPT_ENDPOINT = 'api/deptapi/';
 Global.BASE_EMP_ENDPOINT = 'api/deptapi/emp';
+Global.BASE_MENU_ENDPOINT = 'api/menuapi/';
 exports.Global = Global;
 //# sourceMappingURL=global.js.map

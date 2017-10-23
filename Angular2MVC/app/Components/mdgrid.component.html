@@ -1,4 +1,7 @@
-﻿<div class='panel panel-primary'>
+﻿<div>
+    <admin-header></admin-header>
+</div>
+<div class='panel panel-primary'>
     <div class='panel-heading'>
         Hierarchal Grid Sample
     </div>
@@ -14,7 +17,8 @@
             <tbody *ngFor="let row of depts; let i = index">
                 <tr>
                     <td>
-                        <button style="width: 20px;" type="button" color="primary" md-button (click)="toggleElement(i, row)">-</button>
+                        <button style="width: 20px;" type="button" color="primary" md-button (click)="toggleElement(i, row)" *ngIf="row.IsShow">-</button>
+                        <button style="width: 20px;" type="button" color="primary" md-button (click)="toggleElement(i, row)" *ngIf="!row.IsShow">+</button>
                         <!--<button style="width: 20px;" type="button" color="primary" md-button (click)="emp.expanded = true">+</button>-->
                     </td>
                     <td>{{ row.DeptName }}</td>

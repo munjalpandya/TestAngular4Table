@@ -26,9 +26,43 @@
             <PropertyRef Name="MenuID" />
           </Key>
           <Property Name="MenuID" Type="int" Nullable="false" />
-          <Property Name="MenuName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MenuControlName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ParentMenuID" Type="int" Nullable="false" />
+          <Property Name="MenuCaption" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MenuControlName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MenuLevel" Type="tinyint" Nullable="false" />
+          <Property Name="OrderNo" Type="tinyint" Nullable="false" />
+          <Property Name="LogoUrl" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsNewWindow" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SubMenuNo" Type="tinyint" Nullable="false" />
+          <Property Name="TotSubMenu" Type="tinyint" Nullable="false" />
+          <Property Name="MenuKey" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CommandID" Type="tinyint" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPageMaster">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="int" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="PageCaption" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PageURL" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="bitMenuDefaultPage" Type="bit" Nullable="false" />
+          <Property Name="IsMaintenance" Type="bit" Nullable="false" />
+          <Property Name="MaintenanceMessage" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CommandID" Type="int" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateIP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UpdateBy" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="TblUser">
           <Key>
@@ -53,6 +87,7 @@
           <EntitySet Name="tblDeptMaster" EntityType="Self.tblDeptMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblEmpMaster" EntityType="Self.tblEmpMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMenuMaster" EntityType="Self.tblMenuMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPageMaster" EntityType="Self.tblPageMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -83,6 +118,7 @@
           <Parameter Name="pstrRequestXML" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="tblMenuMasters" EntityType="UserDBModel.tblMenuMaster" />
+          <EntitySet Name="tblPageMasters" EntityType="UserDBModel.tblPageMaster" />
         </EntityContainer>
         <EntityType Name="tblDeptMaster">
           <Key>
@@ -105,9 +141,43 @@
             <PropertyRef Name="MenuID" />
           </Key>
           <Property Name="MenuID" Type="Int32" Nullable="false" />
-          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MenuControlName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ParentMenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuCaption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MenuControlName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MenuLevel" Type="Byte" Nullable="false" />
+          <Property Name="OrderNo" Type="Byte" Nullable="false" />
+          <Property Name="LogoUrl" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsNewWindow" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SubMenuNo" Type="Byte" Nullable="false" />
+          <Property Name="TotSubMenu" Type="Byte" Nullable="false" />
+          <Property Name="MenuKey" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CommandID" Type="Byte" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPageMaster">
+          <Key>
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="PageID" Type="Int32" Nullable="false" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="PageCaption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PageURL" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="bitMenuDefaultPage" Type="Boolean" Nullable="false" />
+          <Property Name="IsMaintenance" Type="Boolean" Nullable="false" />
+          <Property Name="MaintenanceMessage" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommandID" Type="Int32" Nullable="false" />
+          <Property Name="CreateBy" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -154,10 +224,45 @@
           <EntitySetMapping Name="tblMenuMasters">
             <EntityTypeMapping TypeName="UserDBModel.tblMenuMaster">
               <MappingFragment StoreEntitySet="tblMenuMaster">
-                <ScalarProperty Name="ParentMenuID" ColumnName="ParentMenuID" />
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="MenuKey" ColumnName="MenuKey" />
+                <ScalarProperty Name="TotSubMenu" ColumnName="TotSubMenu" />
+                <ScalarProperty Name="SubMenuNo" ColumnName="SubMenuNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsNewWindow" ColumnName="IsNewWindow" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
                 <ScalarProperty Name="MenuControlName" ColumnName="MenuControlName" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuCaption" ColumnName="MenuCaption" />
+                <ScalarProperty Name="ParentMenuID" ColumnName="ParentMenuID" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPageMasters">
+            <EntityTypeMapping TypeName="UserDBModel.tblPageMaster">
+              <MappingFragment StoreEntitySet="tblPageMaster">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateIP" ColumnName="CreateIP" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="MaintenanceMessage" ColumnName="MaintenanceMessage" />
+                <ScalarProperty Name="IsMaintenance" ColumnName="IsMaintenance" />
+                <ScalarProperty Name="bitMenuDefaultPage" ColumnName="bitMenuDefaultPage" />
+                <ScalarProperty Name="PageURL" ColumnName="PageURL" />
+                <ScalarProperty Name="PageCaption" ColumnName="PageCaption" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

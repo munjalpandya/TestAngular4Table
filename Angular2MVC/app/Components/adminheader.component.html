@@ -1,0 +1,57 @@
+﻿<div>
+    <nav class='navbar navbar-form'>
+        <div class='container-fluid'>
+            <!--<button md-icon-button [mdMenuTriggerFor]="menu">
+                <md-icon>more_vert</md-icon> Menu
+            </button>-->
+            <button md-button *ngFor="let menu of menus">
+                <span>{{ menu.MenuCaption }}</span>
+            </button>
+            
+            <button md-button [routerLink]="['../home']">
+                <!--<md-icon>home</md-icon>-->
+                <span>Home</span>
+            </button>
+            <button md-button [mdMenuTriggerFor]="catalogmenu">
+                <!--<md-icon>group</md-icon>-->
+                <span>Product Catalog</span>
+            </button>
+            <button md-button [mdMenuTriggerFor]="usermenu">
+                <!--<md-icon>group</md-icon>-->
+                <span>User Management</span>
+            </button>
+            <button md-button [routerLink]="['../logout']">
+                <!--<md-icon>group</md-icon>-->
+                <span>Sign Out</span>
+            </button>
+            <md-menu #usermenu="mdMenu">
+                <button md-menu-item [routerLink]="['../role']">
+                    <span>Role Management</span>
+                </button>
+                <button md-menu-item [routerLink]="['../user']">
+                    <span>Users</span>
+                </button>
+            </md-menu>
+            <md-menu #catalogmenu="mdMenu">
+                <button md-menu-item [routerLink]="['../category']">
+                    <span>Category</span>
+                </button>
+                <button md-menu-item [routerLink]="['../unit']">
+                    <span>Unit Measurement</span>
+                </button>
+                <button md-menu-item [routerLink]="['../packtype']">
+                    <span>Packing Types</span>
+                </button>
+                <button md-menu-item [routerLink]="['../hsnsa']">
+                    <span>HSNSA Code Master</span>
+                </button>
+                <button md-menu-item [routerLink]="['../psftm']">
+                    <span>Product Service Feature Type</span>
+                </button>
+                <button md-menu-item [routerLink]="['../pscm']">
+                    <span>Product Service Category Master</span>
+                </button>
+            </md-menu>
+        </div>
+    </nav>
+</div>
