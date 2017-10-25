@@ -5,6 +5,11 @@
     IsShow: boolean
 }
 
+export interface IDept1 {
+    DeptID: number,
+    DeptName: string,
+}
+
 export interface IEmp {
     EmpID: number,
     EmpName: string,

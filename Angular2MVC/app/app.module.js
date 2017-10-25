@@ -35,7 +35,8 @@ var md1_component_1 = require("./components/md1.component");
 var uploadpic_component_1 = require("./components/uploadpic.component");
 var mdgrid_component_1 = require("./components/mdgrid.component");
 var mdgrid1_1 = require("./components/mdgrid1");
-var adminheader_component_1 = require("./Components/adminheader.component");
+var adminheader_component_1 = require("./components/adminheader.component");
+var autocompleteexample_component_1 = require("./components/autocompleteexample.component");
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -54,7 +55,7 @@ AppModule = __decorate([
             material_1.MdNativeDateModule, material_1.MdTableModule],
         declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, user_pipe_1.UserFilterPipe, search_component_1.SearchComponent, manageuser_component_1.ManageUser,
             datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, userlist_component_1.UserListComponent, samplepagination_component_1.SamplePaginationComponent, pagination_component_1.PaginationComponent, addtolist_component_1.AddToList,
-            md_component_1.MD, md1_component_1.MD1, uploadpic_component_1.UploadPic, mdgrid_component_1.MDGridComponent, adminheader_component_1.AdminHeaderComponent, mdgrid1_1.MDGrid1, mddatagrid_component_1.MDDataGrid
+            md_component_1.MD, md1_component_1.MD1, uploadpic_component_1.UploadPic, mdgrid_component_1.MDGridComponent, adminheader_component_1.AdminHeaderComponent, mdgrid1_1.MDGrid1, mddatagrid_component_1.MDDataGrid, autocompleteexample_component_1.AutoCompleteExample
         ],
         providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, user_pipe_1.UserFilterPipe],
         entryComponents: [manageuser_component_1.ManageUser],

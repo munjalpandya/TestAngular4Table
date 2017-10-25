@@ -37,7 +37,10 @@ import { UploadPic } from './components/uploadpic.component';
 import { MDGridComponent } from './components/mdgrid.component';
 import { MDGrid1 } from './components/mdgrid1';
 
-import { AdminHeaderComponent } from './Components/adminheader.component';
+import { AdminHeaderComponent } from './components/adminheader.component';
+
+import { AutoCompleteExample } from './components/autocompleteexample.component';
+
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -50,7 +53,7 @@ import { AdminHeaderComponent } from './Components/adminheader.component';
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
         DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
-        , MD, MD1, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid
+        , MD, MD1, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

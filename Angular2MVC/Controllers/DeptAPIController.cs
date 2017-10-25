@@ -41,6 +41,20 @@ namespace Angular2MVC.Controllers
             // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
         }
 
+        [Route("api/deptapi/all")]
+        public HttpResponseMessage GetDept()
+        {
+            return ToJson(UserDB.tblDeptMasters.AsEnumerable());
+            // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
+        }
+
+        [Route("api/deptapi/empbydept/{DeptID}")]
+        public HttpResponseMessage GetEmpByDeptID(int DeptID)
+        {
+            return ToJson(UserDB.tblEmpMasters.Where(x => x.DeptID == DeptID).AsEnumerable());
+            // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
+        }
+
         public HttpResponseMessage Post([FromBody]tblDeptMaster value)
         {
             UserDB.tblDeptMasters.Add(value);

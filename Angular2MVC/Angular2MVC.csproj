@@ -208,6 +208,7 @@
   <ItemGroup>
     <Content Include="app\Components\addtolist.component.html" />
     <Content Include="app\Components\adminheader.component.html" />
+    <Content Include="app\Components\autocompleteexample.component.html" />
     <Content Include="app\Components\manageuser.component.html" />
     <Content Include="app\Components\md.component.html" />
     <Content Include="app\Components\md1.component.html" />
@@ -321,6 +322,7 @@
     <TypeScriptCompile Include="app\app.routing.ts" />
     <TypeScriptCompile Include="app\Components\addtolist.component.ts" />
     <TypeScriptCompile Include="app\Components\adminheader.component.ts" />
+    <TypeScriptCompile Include="app\Components\autocompleteexample.component.ts" />
     <TypeScriptCompile Include="app\Components\home.component.ts" />
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
     <TypeScriptCompile Include="app\Components\md.component.ts" />

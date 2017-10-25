@@ -18,6 +18,14 @@ export class UserService {
         //console.log("Get Method");
         // .catch(this.handleError);
     }
+
+    getById(url: string, Id: string): Observable<any> {
+        return this._http.get(url+Id)
+            .map((response: Response) => <any>response.json());
+        // .do(data => console.log("All: " + JSON.stringify(data)))
+        //console.log("Get Method");
+        // .catch(this.handleError);
+    }
     
     post(url: string, model: any): Observable<any> {
         let body = JSON.stringify(model);

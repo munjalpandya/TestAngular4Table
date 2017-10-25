@@ -27,6 +27,13 @@ var UserService = (function () {
         //console.log("Get Method");
         // .catch(this.handleError);
     };
+    UserService.prototype.getById = function (url, Id) {
+        return this._http.get(url + Id)
+            .map(function (response) { return response.json(); });
+        // .do(data => console.log("All: " + JSON.stringify(data)))
+        //console.log("Get Method");
+        // .catch(this.handleError);
+    };
     UserService.prototype.post = function (url, model) {
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });

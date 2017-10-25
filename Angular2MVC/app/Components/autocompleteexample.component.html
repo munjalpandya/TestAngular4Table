@@ -1,0 +1,42 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Auto Complete Example
+    </div>
+    <form novalidate [formGroup]="userFrm">
+        <div class='panel-body'>
+            <div class="frm-ctrl">
+                <div class="line_ctrl">
+                    <md-input-container>
+                        <input mdInput placeholder="Department" [mdAutocomplete]="auto" formControlName="Dept">
+                    </md-input-container>
+                    <md-autocomplete #auto="mdAutocomplete">
+                        <md-option *ngFor="let dept of filteredDepts | async" [value]="dept.DeptName" (onSelectionChange)="SelectDept($event, dept.DeptID)">
+                            {{ dept.DeptName }}
+                        </md-option>
+                    </md-autocomplete>
+                </div>
+                <div class="line_ctrl">
+                    <md-input-container>
+                        <input mdInput placeholder="Employee" [mdAutocomplete]="autoEmp" formControlName="Emp">
+                    </md-input-container>
+                    <md-autocomplete #autoEmp="mdAutocomplete">
+                        <md-option *ngFor="let emp of filteredEmps | async" [value]="emp.EmpName" (onSelectionChange)="SelectEmp($event, emp)">
+                            {{ emp.EmpName }}
+                        </md-option>
+                    </md-autocomplete>
+                </div>
+                <div class="line_ctrl">
+                    <md-input-container>
+                        <input mdInput placeholder="Salary" formControlName="Salary" type="number">
+                    </md-input-container>
+                </div>
+            </div>
+
+            <div class="frm-ctrl">
+                <md-input-container>
+                    <input mdInput placeholder="Date" formControlName="Dept1" type="month">
+                </md-input-container>
+            </div>
+        </div>
+    </form>
+</div>

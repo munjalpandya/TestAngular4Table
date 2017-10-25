@@ -12,5 +12,7 @@ Global.BASE_UPLOADPIC_ENDPOINT = 'api/uploadpic/';
 Global.BASE_DEPT_ENDPOINT = 'api/deptapi/';
 Global.BASE_EMP_ENDPOINT = 'api/deptapi/emp';
 Global.BASE_MENU_ENDPOINT = 'api/menuapi/';
+Global.BASE_ALLDEPT_ENDPOINT = 'api/deptapi/all/';
+Global.BASE_EMPBYDEPT_ENDPOINT = 'api/deptapi/empbydept/';
 exports.Global = Global;
 //# sourceMappingURL=global.js.map
