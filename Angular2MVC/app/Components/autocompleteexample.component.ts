@@ -20,6 +20,8 @@ export class AutoCompleteExample implements OnInit {
     filteredDepts: Observable<any[]>;
     filteredEmps: Observable<any[]>;
     userFrm: FormGroup;
+    selectedDept: string;
+    selectedEmp: string;
     
     constructor(private _userService: UserService, private fb: FormBuilder) {
         //this.deptCtrl = new FormControl();
@@ -29,8 +31,7 @@ export class AutoCompleteExample implements OnInit {
         this.userFrm = this.fb.group({
             Dept: [''],
             Emp: [''],
-            Salary: [''],
-            Dept1: ['']
+            Salary: ['']
         });
         this.LoadDept();
         
@@ -56,7 +57,8 @@ export class AutoCompleteExample implements OnInit {
 
     SelectDept(event: MdOptionSelectionChange, DeptID: string): void {
         if (event.source.selected) {
-            console.log("Dept ID Selected: " + DeptID);
+            //console.log("Dept ID Selected: " + DeptID);
+            this.selectedDept = DeptID;
             this.userFrm.controls["Emp"].setValue("");
             this.LoadEmp(DeptID);
         }
@@ -79,9 +81,15 @@ export class AutoCompleteExample implements OnInit {
 
     SelectEmp(event: MdOptionSelectionChange, Emp: IEmp): void {
         if (event.source.selected) {
-            console.log("Emp ID Selected: " + Emp.EmpID);
-            console.log("Salary of Selected: " + Emp.Salary);
+            //console.log("Emp ID Selected: " + Emp.EmpID);
+            //console.log("Salary of Selected: " + Emp.Salary);
+            this.selectedEmp = Emp.EmpID.toString();
             this.userFrm.controls["Salary"].setValue(Emp.Salary);
         }
+    }
+
+    save(): void {
+        console.log("Selected Dept: " + this.selectedDept);
+        console.log("Selected Emp: " + this.selectedEmp);
     }
 }

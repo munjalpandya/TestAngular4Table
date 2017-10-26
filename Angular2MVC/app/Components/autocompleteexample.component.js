@@ -25,8 +25,7 @@ var AutoCompleteExample = (function () {
         this.userFrm = this.fb.group({
             Dept: [''],
             Emp: [''],
-            Salary: [''],
-            Dept1: ['']
+            Salary: ['']
         });
         this.LoadDept();
     };
@@ -47,7 +46,8 @@ var AutoCompleteExample = (function () {
     };
     AutoCompleteExample.prototype.SelectDept = function (event, DeptID) {
         if (event.source.selected) {
-            console.log("Dept ID Selected: " + DeptID);
+            //console.log("Dept ID Selected: " + DeptID);
+            this.selectedDept = DeptID;
             this.userFrm.controls["Emp"].setValue("");
             this.LoadEmp(DeptID);
         }
@@ -67,10 +67,15 @@ var AutoCompleteExample = (function () {
     };
     AutoCompleteExample.prototype.SelectEmp = function (event, Emp) {
         if (event.source.selected) {
-            console.log("Emp ID Selected: " + Emp.EmpID);
-            console.log("Salary of Selected: " + Emp.Salary);
+            //console.log("Emp ID Selected: " + Emp.EmpID);
+            //console.log("Salary of Selected: " + Emp.Salary);
+            this.selectedEmp = Emp.EmpID.toString();
             this.userFrm.controls["Salary"].setValue(Emp.Salary);
         }
+    };
+    AutoCompleteExample.prototype.save = function () {
+        console.log("Selected Dept: " + this.selectedDept);
+        console.log("Selected Emp: " + this.selectedEmp);
     };
     return AutoCompleteExample;
 }());
