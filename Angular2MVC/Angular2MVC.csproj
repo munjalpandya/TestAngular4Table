@@ -212,6 +212,7 @@
     <Content Include="app\Components\manageuser.component.html" />
     <Content Include="app\Components\md.component.html" />
     <Content Include="app\Components\md1.component.html" />
+    <Content Include="app\Components\md2.component.html" />
     <Content Include="app\Components\mdgrid.component.html" />
     <Content Include="app\Components\mdgrid1.html" />
     <Content Include="app\Components\samplepagination.component.html" />

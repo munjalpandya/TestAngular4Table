@@ -5,7 +5,7 @@ import { UserService } from '../Service/user.service';
 import { IDept } from '../Model/Dept';
 
 @Component({
-    templateUrl: 'app/Components/md1.component.html'
+    templateUrl: 'app/Components/md2.component.html'
 })
 
 export class MD1 {

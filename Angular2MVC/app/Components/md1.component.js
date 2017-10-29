@@ -55,7 +55,7 @@ var MD1 = (function () {
 }());
 MD1 = __decorate([
     core_1.Component({
-        templateUrl: 'app/Components/md1.component.html'
+        templateUrl: 'app/Components/md2.component.html'
     }),
     __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService])
 ], MD1);
