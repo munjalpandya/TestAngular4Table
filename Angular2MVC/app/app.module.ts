@@ -31,6 +31,7 @@ import { AddToList } from './components/addtolist.component';
 
 import { MD } from './components/md.component';
 import { MD1 } from './components/md1.component';
+import { MD3 } from './components/md3.component';
 
 import { UploadPic } from './components/uploadpic.component';
 
@@ -53,7 +54,7 @@ import { AutoCompleteExample } from './components/autocompleteexample.component'
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
         DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
-        , MD, MD1, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample
+        , MD, MD1, MD3, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser],

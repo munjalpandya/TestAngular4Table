@@ -1,0 +1,39 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Master Detail Binding
+    </div>
+    <form novalidate (ngSubmit)="save(userFrm)" [formGroup]="userFrm">
+        <div class='panel-body'>
+            <div class="frm-ctrl">
+                <md-input-container>
+                    <input mdInput placeholder="Department" formControlName="DeptName" [value]="deptName">
+                </md-input-container>
+            </div>
+        </div>
+        <div formArrayName="Employees" *ngIf='emps'>
+            <div class='panel-body' *ngFor="let employee of userFrm.controls.Employees.controls; let i=index;">
+                <div class="frm-ctrl" [formGroupName]="i">
+                    <div class="line_ctrl">
+                        <md-input-container>
+                            <input mdInput placeholder="Employee Name" formControlName="EmpName">
+                        </md-input-container>
+                    </div>
+                    <div class="line_ctrl">
+                        <md-input-container>
+                            <input mdInput placeholder="Salary" formControlName="Salary">
+                        </md-input-container>
+                    </div>
+                    <div class="line_ctrl">
+                        <!--<button color="warn" type="button" *ngIf="userFrm.controls.Employees.controls.length > 0" md-raised-button (click)="removeAddress(i)">Remove</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class='panel-body'>
+            <button color="warn" type="button" md-raised-button (click)="addEmployee()">Add another employee +</button>
+        </div>-->
+        <div class='panel-body'>
+            <button color="warn" type="submit" md-raised-button>Save</button>
+        </div>
+    </form>
+</div>

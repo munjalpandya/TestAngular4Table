@@ -8,6 +8,7 @@ import { SamplePaginationComponent } from './Components/samplepagination.compone
 import { AddToList } from './components/addtolist.component';
 import { MD } from './components/md.component';
 import { MD1 } from './components/md1.component';
+import { MD3 } from './components/md3.component';
 import { UploadPic } from './components/uploadpic.component';
 import { MDGridComponent } from './components/mdgrid.component';
 import { MDGrid1 } from './components/mdgrid1';
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     { path: 'addtolist', component: AddToList },
     { path: 'masterdetail', component: MD },
     { path: 'md', component: MD1 },
+    { path: 'md3', component: MD3 },
     { path: 'uploadpic', component: UploadPic },
     { path: 'mdgrid', component: MDGridComponent },
     { path: 'mdgrid1', component: MDGrid1 },

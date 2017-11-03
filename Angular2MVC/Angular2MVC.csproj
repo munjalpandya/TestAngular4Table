@@ -213,6 +213,7 @@
     <Content Include="app\Components\md.component.html" />
     <Content Include="app\Components\md1.component.html" />
     <Content Include="app\Components\md2.component.html" />
+    <Content Include="app\Components\md3.component.html" />
     <Content Include="app\Components\mdgrid.component.html" />
     <Content Include="app\Components\mdgrid1.html" />
     <Content Include="app\Components\samplepagination.component.html" />
@@ -328,6 +329,7 @@
     <TypeScriptCompile Include="app\Components\manageuser.component.ts" />
     <TypeScriptCompile Include="app\Components\md.component.ts" />
     <TypeScriptCompile Include="app\Components\md1.component.ts" />
+    <TypeScriptCompile Include="app\Components\md3.component.ts" />
     <TypeScriptCompile Include="app\Components\mdgrid.component.ts" />
     <TypeScriptCompile Include="app\Components\mdgrid1.ts" />
     <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
