@@ -26,6 +26,22 @@ namespace Angular2MVC.Controllers
             // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
         }
 
+        [Route("api/usersearchapi/{searchText}")]
+        public HttpResponseMessage GetByText(string searchText)
+        {
+            var query = (from um in UserDB.TblUsers
+                         where (searchText == "nodata" || um.FirstName.Contains(searchText))
+                            && (searchText == "nodata" || um.LastName.Contains(searchText))
+                         select new
+                         {
+                             FirstName = um.FirstName,
+                             LastName = um.LastName,
+                             DOB = um.DOB
+                         });
+            return ToJson(query);
+            // return ErrorJson(UserDB.TblUsers.AsEnumerable());  //For Testing
+        }
+
         public HttpResponseMessage Post([FromBody]TblUser value)
         {
             var httpRequest = HttpContext.Current.Request;

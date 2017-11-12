@@ -12,7 +12,8 @@
 </div>
 
 <div>
-    <table class="table table-hover table-striped table-sortable" *ngIf='data ; else loadingScreen;'>
+    <!--<table class="table table-hover table-striped table-sortable" *ngIf='data ; else loadingScreen;'>-->
+    <table class="table table-bordered" *ngIf='data ; else loadingScreen;'>
         <thead>
             <tr>
                 <th *ngFor="let column of columns" [class]="selectedClass(column.variable)"

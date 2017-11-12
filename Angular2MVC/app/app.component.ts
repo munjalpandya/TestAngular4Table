@@ -28,6 +28,10 @@ import {
                            <md-icon>group</md-icon>
                            <span>Users Management</span>
                          </button>
+                        <button md-menu-item [routerLink]="['userlist1']">
+                           <md-icon>group</md-icon>
+                           <span>Users</span>
+                         </button>
                        </md-menu>
                     </div>
                    </nav>

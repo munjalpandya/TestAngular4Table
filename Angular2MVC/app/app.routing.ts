@@ -13,6 +13,7 @@ import { UploadPic } from './components/uploadpic.component';
 import { MDGridComponent } from './components/mdgrid.component';
 import { MDGrid1 } from './components/mdgrid1';
 import { AutoCompleteExample } from './components/autocompleteexample.component';
+import { UserList1Component } from './components/userlist2.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     { path: 'uploadpic', component: UploadPic },
     { path: 'mdgrid', component: MDGridComponent },
     { path: 'mdgrid1', component: MDGrid1 },
-    { path: 'ace', component: AutoCompleteExample }
+    { path: 'ace', component: AutoCompleteExample },
+    { path: 'userlist1', component: UserList1Component }
 ];
 
 export const routing: ModuleWithProviders =

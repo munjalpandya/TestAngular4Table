@@ -38,9 +38,13 @@ import { UploadPic } from './components/uploadpic.component';
 import { MDGridComponent } from './components/mdgrid.component';
 import { MDGrid1 } from './components/mdgrid1';
 
+import { UserList1Component } from './components/userlist2.component';
+
 import { AdminHeaderComponent } from './components/adminheader.component';
 
 import { AutoCompleteExample } from './components/autocompleteexample.component';
+
+import { UserReportComponent } from './components/userreport.component';
 
 /*
 @NgModule({
@@ -54,10 +58,10 @@ import { AutoCompleteExample } from './components/autocompleteexample.component'
         MdNativeDateModule, MdTableModule],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
         DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
-        , MD, MD1, MD3, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample
+        , MD, MD1, MD3, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample, UserList1Component, UserReportComponent
                   ],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
-    entryComponents: [ManageUser],
+    entryComponents: [ManageUser, UserReportComponent],
     bootstrap: [AppComponent]
 
 })

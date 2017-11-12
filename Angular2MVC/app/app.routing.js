@@ -13,6 +13,7 @@ var uploadpic_component_1 = require("./components/uploadpic.component");
 var mdgrid_component_1 = require("./components/mdgrid.component");
 var mdgrid1_1 = require("./components/mdgrid1");
 var autocompleteexample_component_1 = require("./components/autocompleteexample.component");
+var userlist2_component_1 = require("./components/userlist2.component");
 var appRoutes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
@@ -26,7 +27,8 @@ var appRoutes = [
     { path: 'uploadpic', component: uploadpic_component_1.UploadPic },
     { path: 'mdgrid', component: mdgrid_component_1.MDGridComponent },
     { path: 'mdgrid1', component: mdgrid1_1.MDGrid1 },
-    { path: 'ace', component: autocompleteexample_component_1.AutoCompleteExample }
+    { path: 'ace', component: autocompleteexample_component_1.AutoCompleteExample },
+    { path: 'userlist1', component: userlist2_component_1.UserList1Component }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

@@ -220,6 +220,8 @@
     <Content Include="app\Components\uploadpic.component.html" />
     <Content Include="app\Components\user.component.html" />
     <Content Include="app\Components\userlist.component.html" />
+    <Content Include="app\Components\userlist1.component.html" />
+    <Content Include="app\Components\userreport.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.component.html" />
     <Content Include="app\Shared\datagrid\datagrid.style.css" />
     <Content Include="app\Shared\datagrid\mddatagrid.component.html" />
@@ -336,7 +338,10 @@
     <TypeScriptCompile Include="app\Components\uploadpic.component.ts" />
     <TypeScriptCompile Include="app\Components\user.component.ts" />
     <TypeScriptCompile Include="app\Components\userdatasource.ts" />
+    <TypeScriptCompile Include="app\Components\userfilter.component.ts" />
     <TypeScriptCompile Include="app\Components\userlist.component.ts" />
+    <TypeScriptCompile Include="app\Components\userlist2.component.ts" />
+    <TypeScriptCompile Include="app\Components\userreport.component.ts" />
     <TypeScriptCompile Include="app\filter\user.pipe.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Model\Dept.ts" />

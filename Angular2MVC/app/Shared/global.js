@@ -7,6 +7,7 @@ var Global = (function () {
 }());
 Global.BASE_USER_ENDPOINT = 'api/userapi/';
 Global.BASE_USER_ENDPOINT1 = 'api/userapi/postwithfile/';
+Global.BASE_USER_SEARCH_ENDPOINT = 'api/usersearchapi/';
 Global.BASE_MASTERDETAIL_ENDPOINT = 'api/masterdetailapi/';
 Global.BASE_UPLOADPIC_ENDPOINT = 'api/uploadpic/';
 Global.BASE_DEPT_ENDPOINT = 'api/deptapi/';
