@@ -53,4 +53,3 @@ UserList1Component = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService, material_1.MdDialog])
 ], UserList1Component);
 exports.UserList1Component = UserList1Component;
-//# sourceMappingURL=userlist2.component.js.map

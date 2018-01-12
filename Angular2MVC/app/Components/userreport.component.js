@@ -29,4 +29,3 @@ UserReportComponent = __decorate([
     __metadata("design:paramtypes", [material_1.MdDialog])
 ], UserReportComponent);
 exports.UserReportComponent = UserReportComponent;
-//# sourceMappingURL=userreport.component.js.map

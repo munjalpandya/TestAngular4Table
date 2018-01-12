@@ -217,6 +217,7 @@
     <Content Include="app\Components\mdgrid.component.html" />
     <Content Include="app\Components\mdgrid1.html" />
     <Content Include="app\Components\samplepagination.component.html" />
+    <Content Include="app\Components\slider.component.html" />
     <Content Include="app\Components\uploadpic.component.html" />
     <Content Include="app\Components\user.component.html" />
     <Content Include="app\Components\userlist.component.html" />
@@ -250,8 +251,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\02.jpg" />
+    <Content Include="images\03.jpg" />
+    <Content Include="images\03a.jpg" />
+    <Content Include="images\04.jpg" />
+    <Content Include="images\05.jpg" />
+    <Content Include="images\06.jpg" />
+    <Content Include="images\07.jpg" />
     <Content Include="images\cross.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\next.png" />
+    <Content Include="images\prev.png" />
     <Content Include="images\users.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -276,6 +286,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="systemjs.config.js" />
@@ -293,8 +304,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +344,7 @@
     <TypeScriptCompile Include="app\Components\mdgrid.component.ts" />
     <TypeScriptCompile Include="app\Components\mdgrid1.ts" />
     <TypeScriptCompile Include="app\Components\samplepagination.component.ts" />
+    <TypeScriptCompile Include="app\Components\slider.component.ts" />
     <TypeScriptCompile Include="app\Components\uploadpic.component.ts" />
     <TypeScriptCompile Include="app\Components\user.component.ts" />
     <TypeScriptCompile Include="app\Components\userdatasource.ts" />

@@ -172,4 +172,3 @@ DataGrid = __decorate([
     })
 ], DataGrid);
 exports.DataGrid = DataGrid;
-//# sourceMappingURL=datagrid.component.js.map

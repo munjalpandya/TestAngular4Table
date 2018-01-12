@@ -158,4 +158,3 @@ UserComponent = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService, material_1.MdDialog, user_pipe_1.UserFilterPipe])
 ], UserComponent);
 exports.UserComponent = UserComponent;
-//# sourceMappingURL=user.component.js.map

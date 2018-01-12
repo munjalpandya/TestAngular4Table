@@ -199,4 +199,3 @@ ManageUser = __decorate([
     __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService, material_1.MdDialogRef])
 ], ManageUser);
 exports.ManageUser = ManageUser;
-//# sourceMappingURL=manageuser.component.js.map

@@ -86,4 +86,3 @@ AutoCompleteExample = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService, forms_1.FormBuilder])
 ], AutoCompleteExample);
 exports.AutoCompleteExample = AutoCompleteExample;
-//# sourceMappingURL=autocompleteexample.component.js.map

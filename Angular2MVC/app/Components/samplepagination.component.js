@@ -21,4 +21,3 @@ SamplePaginationComponent = __decorate([
     })
 ], SamplePaginationComponent);
 exports.SamplePaginationComponent = SamplePaginationComponent;
-//# sourceMappingURL=samplepagination.component.js.map

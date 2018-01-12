@@ -52,4 +52,3 @@ Format = __decorate([
     core_1.Injectable()
 ], Format);
 exports.Format = Format;
-//# sourceMappingURL=format.js.map

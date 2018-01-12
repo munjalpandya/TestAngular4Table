@@ -44,4 +44,3 @@ MDDataGrid = __decorate([
     })
 ], MDDataGrid);
 exports.MDDataGrid = MDDataGrid;
-//# sourceMappingURL=mddatagrid.component.js.map

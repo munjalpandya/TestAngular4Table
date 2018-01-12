@@ -6,4 +6,3 @@ var Page = (function () {
     return Page;
 }());
 exports.Page = Page;
-//# sourceMappingURL=pagination.js.map

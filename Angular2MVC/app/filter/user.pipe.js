@@ -31,4 +31,3 @@ UserFilterPipe = __decorate([
     core_1.Injectable()
 ], UserFilterPipe);
 exports.UserFilterPipe = UserFilterPipe;
-//# sourceMappingURL=user.pipe.js.map

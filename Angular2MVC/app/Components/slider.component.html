@@ -1,0 +1,37 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Slider / Fancybox
+    </div>
+
+    <!--<div ng2-carouselamos
+         class="slides-wrapper"
+         [items]="items"
+         [width]="1920"
+         [$prev]="prev"
+         [$next]="next"
+         [$item]="item">
+    </div>-->
+
+
+    <!--<ng-template #prev>
+        <img src="../../images/prev.png" id="left" />
+    </ng-template>
+    <ng-template #next>
+        <img src="../../images/next.png" id="right" />
+    </ng-template>
+    <ng-template #item let-item let-i="index">
+
+        <div class="items">
+            <img src="{{ item.name }}">
+        </div>
+
+    </ng-template>-->
+
+    <!--<div style="width: 800px; height: 400px">
+        <carousel [sources]="items" [config]="config"></carousel>
+    </div>-->
+    <a *ngFor="let i of items" href="{{i.name}}" class="fancybox"><img src="{{i.name}}" height="200" width="200" /></a>
+
+    <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+
+</div>

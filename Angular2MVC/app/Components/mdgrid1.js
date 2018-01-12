@@ -77,4 +77,3 @@ MDGrid1 = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], MDGrid1);
 exports.MDGrid1 = MDGrid1;
-//# sourceMappingURL=mdgrid1.js.map

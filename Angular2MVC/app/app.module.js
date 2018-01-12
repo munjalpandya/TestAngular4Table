@@ -40,6 +40,10 @@ var userlist2_component_1 = require("./components/userlist2.component");
 var adminheader_component_1 = require("./components/adminheader.component");
 var autocompleteexample_component_1 = require("./components/autocompleteexample.component");
 var userreport_component_1 = require("./components/userreport.component");
+var slider_component_1 = require("./components/slider.component");
+//import { CarouselModule } from 'angular4-carousel';
+var ng2_carouselamos_1 = require("ng2-carouselamos");
+var ngx_editor_1 = require("ngx-editor");
 /*
 @NgModule({
     exports: [MdPaginatorModule]
@@ -55,15 +59,19 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, forms_1.FormsModule,
             animations_1.BrowserAnimationsModule,
             material_1.MaterialModule,
-            material_1.MdNativeDateModule, material_1.MdTableModule],
+            material_1.MdNativeDateModule, material_1.MdTableModule,
+            ngx_editor_1.NgxEditorModule
+            //    , CarouselModule
+            ,
+            ng2_carouselamos_1.Ng2CarouselamosModule
+        ],
         declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, user_pipe_1.UserFilterPipe, search_component_1.SearchComponent, manageuser_component_1.ManageUser,
             datagrid_component_1.DataGrid, format_1.Format, orderby_1.OrderBy, userlist_component_1.UserListComponent, samplepagination_component_1.SamplePaginationComponent, pagination_component_1.PaginationComponent, addtolist_component_1.AddToList,
-            md_component_1.MD, md1_component_1.MD1, md3_component_1.MD3, uploadpic_component_1.UploadPic, mdgrid_component_1.MDGridComponent, adminheader_component_1.AdminHeaderComponent, mdgrid1_1.MDGrid1, mddatagrid_component_1.MDDataGrid, autocompleteexample_component_1.AutoCompleteExample, userlist2_component_1.UserList1Component, userreport_component_1.UserReportComponent
-        ],
+            md_component_1.MD, md1_component_1.MD1, md3_component_1.MD3, uploadpic_component_1.UploadPic, mdgrid_component_1.MDGridComponent, adminheader_component_1.AdminHeaderComponent, mdgrid1_1.MDGrid1, mddatagrid_component_1.MDDataGrid, autocompleteexample_component_1.AutoCompleteExample, userlist2_component_1.UserList1Component, userreport_component_1.UserReportComponent,
+            slider_component_1.SliderComponent],
         providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, user_pipe_1.UserFilterPipe],
         entryComponents: [manageuser_component_1.ManageUser, userreport_component_1.UserReportComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map

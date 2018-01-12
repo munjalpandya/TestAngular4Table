@@ -48,4 +48,3 @@ UploadPic = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], UploadPic);
 exports.UploadPic = UploadPic;
-//# sourceMappingURL=uploadpic.component.js.map

@@ -1,4 +1,4 @@
-﻿import { NgModule, ErrorHandler } from '@angular/core';
+﻿import { NgModule, ErrorHandler, enableProdMode } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,6 +45,11 @@ import { AdminHeaderComponent } from './components/adminheader.component';
 import { AutoCompleteExample } from './components/autocompleteexample.component';
 
 import { UserReportComponent } from './components/userreport.component';
+import { SliderComponent } from './components/slider.component';
+
+//import { CarouselModule } from 'angular4-carousel';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { NgxEditorModule } from 'ngx-editor';
 
 /*
 @NgModule({
@@ -55,11 +60,15 @@ import { UserReportComponent } from './components/userreport.component';
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, FormsModule,
         BrowserAnimationsModule,
         MaterialModule,
-        MdNativeDateModule, MdTableModule],
+        MdNativeDateModule, MdTableModule
+        , NgxEditorModule
+    //    , CarouselModule
+,Ng2CarouselamosModule
+    ],
     declarations: [AppComponent, UserComponent, HomeComponent, UserFilterPipe, SearchComponent, ManageUser,
         DataGrid, Format, OrderBy, UserListComponent, SamplePaginationComponent, PaginationComponent, AddToList
         , MD, MD1, MD3, UploadPic, MDGridComponent, AdminHeaderComponent, MDGrid1, MDDataGrid, AutoCompleteExample, UserList1Component, UserReportComponent
-                  ],
+        , SliderComponent],
     providers: [{ provide: ErrorHandler, useClass: AppErrorHandler }, { provide: APP_BASE_HREF, useValue: '/' }, UserService, UserFilterPipe],
     entryComponents: [ManageUser, UserReportComponent],
     bootstrap: [AppComponent]

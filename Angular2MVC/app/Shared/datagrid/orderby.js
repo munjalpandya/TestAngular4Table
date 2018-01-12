@@ -89,4 +89,3 @@ OrderBy = OrderBy_1 = __decorate([
 ], OrderBy);
 exports.OrderBy = OrderBy;
 var OrderBy_1;
-//# sourceMappingURL=orderby.js.map

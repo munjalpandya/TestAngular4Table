@@ -43,4 +43,3 @@ SearchComponent = __decorate([
     })
 ], SearchComponent);
 exports.SearchComponent = SearchComponent;
-//# sourceMappingURL=search.component.js.map

@@ -120,4 +120,3 @@ PaginationComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], PaginationComponent);
 exports.PaginationComponent = PaginationComponent;
-//# sourceMappingURL=pagination.component.js.map

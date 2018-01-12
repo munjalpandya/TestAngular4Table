@@ -71,4 +71,3 @@ AddToList = __decorate([
     __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService])
 ], AddToList);
 exports.AddToList = AddToList;
-//# sourceMappingURL=addtolist.component.js.map

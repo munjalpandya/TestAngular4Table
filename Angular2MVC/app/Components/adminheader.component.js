@@ -34,4 +34,3 @@ AdminHeaderComponent = __decorate([
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], AdminHeaderComponent);
 exports.AdminHeaderComponent = AdminHeaderComponent;
-//# sourceMappingURL=adminheader.component.js.map

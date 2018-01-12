@@ -29,4 +29,3 @@ var AppErrorHandler = (function (_super) {
     return AppErrorHandler;
 }(core_1.ErrorHandler));
 exports.default = AppErrorHandler;
-//# sourceMappingURL=errorhandler.js.map
